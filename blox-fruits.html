@@ -42,7 +42,6 @@
             font-size: 27px;
         }
 
-        /* BARRA DE PESQUISA NO CATÁLOGO */
         .barra-pesquisa-catalogo {
             max-width: 1200px;
             margin: 25px auto;
@@ -106,15 +105,12 @@
         .imagem-conta {
             width: 100%;
             height: 185px;
-            background-color: #2d2d2d;
             border-radius: 8px;
             margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ce93d8;
-            font-size: 18px;
-            font-weight: bold;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #2d2d2d;
             border: 1px solid #444;
         }
 
@@ -244,7 +240,6 @@
             border-top: 1px solid #333;
         }
 
-        /* CLASSE PARA ESCONDER PRODUTOS NA PESQUISA */
         .escondido {
             display: none !important;
         }
@@ -257,7 +252,6 @@
         <h1>📋 CATÁLOGO BLOX FRUITS 📋</h1>
     </header>
 
-    <!-- ✅ BARRA DE PESQUISA FUNCIONAL AQUI DENTRO -->
     <div class="barra-pesquisa-catalogo">
         <input type="text" id="pesquisaProduto" placeholder="🔍 Pesquisar conta por nome, raça ou preço...">
     </div>
@@ -268,23 +262,15 @@
     <div class="container" id="listaProdutos">
 
         <div class="card" data-nome="v4 draco" data-preco="45">
-            <div class="imagem-conta">V4 DRACO</div>
+            <div class="imagem-conta" style="background-image: url('https://i.imgur.com/9Z7X7yL.png')"></div>
             <h3>Conta V4 DRACO</h3>
             <p class="descricao">Level máximo • Draco V4 • Todas engrenagens • Itens raros</p>
             <div class="preco">R$ 45,00</div>
             <button class="botao-comprar" onclick="abrirPix('45,00', '00020126580014br.gov.bcb.pix0136SUACHAVEPIX')">Comprar Agora</button>
         </div>
 
-        <div class="card" data-nome="v4 aleatória" data-preco="28">
-            <div class="imagem-conta">V4 ALEATÓRIA</div>
-            <h3>Conta V4 Aleatória</h3>
-            <p class="descricao">Level máximo • Raça V4 qualquer • Fruta boa • Armas liberadas</p>
-            <div class="preco">R$ 28,00</div>
-            <button class="botao-comprar" onclick="abrirPix('28,00', '00020126580014br.gov.bcb.pix0136SUACHAVEPIX')">Comprar Agora</button>
-        </div>
-
         <div class="card" data-nome="v4 ghoul" data-preco="32">
-            <div class="imagem-conta">V4 GHOUL</div>
+            <div class="imagem-conta" style="background-image: url('https://i.imgur.com/3kLpQ8b.png')"></div>
             <h3>Conta V4 GHOUL</h3>
             <p class="descricao">Level máximo • Ghoul V4 • Habilidades liberadas • Fruta de graça</p>
             <div class="preco">R$ 32,00</div>
@@ -292,7 +278,7 @@
         </div>
 
         <div class="card" data-nome="v4 mink" data-preco="30">
-            <div class="imagem-conta">V4 MINK</div>
+            <div class="imagem-conta" style="background-image: url('https://i.imgur.com/5tGfZbA.png')"></div>
             <h3>Conta V4 MINK</h3>
             <p class="descricao">Level máximo • Mink V4 • Velocidade máxima • Itens de evento</p>
             <div class="preco">R$ 30,00</div>
@@ -300,7 +286,7 @@
         </div>
 
         <div class="card" data-nome="v4 human" data-preco="29">
-            <div class="imagem-conta">V4 HUMAN</div>
+            <div class="imagem-conta" style="background-image: url('https://i.imgur.com/2wQzX8M.png')"></div>
             <h3>Conta V4 HUMAN</h3>
             <p class="descricao">Level máximo • Human V4 • Dano alto • Todas as espadas</p>
             <div class="preco">R$ 29,00</div>
@@ -308,11 +294,19 @@
         </div>
 
         <div class="card" data-nome="v4 shark" data-preco="33">
-            <div class="imagem-conta">V4 SHARK</div>
+            <div class="imagem-conta" style="background-image: url('https://i.imgur.com/7xRcV9N.png')"></div>
             <h3>Conta V4 SHARK</h3>
             <p class="descricao">Level máximo • Shark V4 • Imunidade água • Fruta mitica</p>
             <div class="preco">R$ 33,00</div>
             <button class="botao-comprar" onclick="abrirPix('33,00', '00020126580014br.gov.bcb.pix0136SUACHAVEPIX')">Comprar Agora</button>
+        </div>
+
+        <div class="card" data-nome="v4 aleatória" data-preco="28">
+            <div class="imagem-conta" style="background-image: url('https://i.imgur.com/4vBnY6P.png')"></div>
+            <h3>Conta V4 Aleatória</h3>
+            <p class="descricao">Level máximo • Raça V4 qualquer • Fruta boa • Armas liberadas</p>
+            <div class="preco">R$ 28,00</div>
+            <button class="botao-comprar" onclick="abrirPix('28,00', '00020126580014br.gov.bcb.pix0136SUACHAVEPIX')">Comprar Agora</button>
         </div>
 
     </div>
@@ -334,7 +328,6 @@
     </footer>
 
     <script>
-        // SISTEMA DE PIX
         function abrirPix(valor, codigo) {
             document.getElementById('textoValor').textContent = `Valor: R$ ${valor}`;
             document.getElementById('codigoPix').textContent = codigo;
@@ -358,7 +351,6 @@
             if (event.target == tela) fecharPix();
         }
 
-        // ✅ SISTEMA DE PESQUISA FUNCIONAL
         const pesquisa = document.getElementById('pesquisaProduto');
         const produtos = document.querySelectorAll('.card');
 
