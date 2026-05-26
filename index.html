@@ -1,206 +1,305 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo Completo - Top Blox</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-<title>Top Bloxx</title>
+        body {
+            background-color: #0f0f0f;
+            color: #fff;
+        }
 
-<style>
+        header {
+            background: linear-gradient(135deg, #9c27b0 0%, #3f51b5 100%);
+            padding: 22px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
 
-body{
-margin:0;
-font-family:Arial;
-background:linear-gradient(180deg,#e8e8e8,#d9d9ff);
-}
+        .botao-voltar {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255,255,255,0.18);
+            color: white;
+            padding: 9px 16px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-size: 15px;
+            transition: background 0.3s;
+        }
 
-.topo{
-background:linear-gradient(90deg,#6f2cff,#4a18c9);
-padding:25px;
-text-align:center;
-color:white;
-font-size:40px;
-font-weight:bold;
-letter-spacing:2px;
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
-}
+        .botao-voltar:hover {
+            background-color: rgba(255,255,255,0.3);
+        }
 
-.busca{
-padding:20px;
-text-align:center;
-}
+        header h1 {
+            font-size: 27px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
 
-input{
-width:90%;
-padding:15px;
-border:none;
-border-radius:30px;
-font-size:18px;
-outline:none;
-box-shadow:0 3px 10px rgba(0,0,0,0.1);
-}
+        .categoria {
+            max-width: 1200px;
+            margin: 35px auto 15px;
+            padding: 0 20px;
+        }
 
-.titulo{
-width:90%;
-margin:auto;
-background:white;
-padding:20px;
-border-radius:20px;
-text-align:center;
-font-size:28px;
-font-weight:bold;
-color:#6f2cff;
-margin-bottom:25px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
+        .categoria h2 {
+            color: #ce93d8;
+            font-size: 22px;
+            margin-bottom: 15px;
+            border-left: 4px solid #9c27b0;
+            padding-left: 10px;
+        }
 
-.catalogo{
-width:90%;
-margin:auto;
-position:relative;
-border-radius:20px;
-overflow:hidden;
-cursor:pointer;
-margin-bottom:20px;
-box-shadow:0 8px 20px rgba(0,0,0,0.2);
-transition:0.3s;
-}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto 30px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
 
-.catalogo:hover{
-transform:scale(1.02);
-}
+        .card {
+            background-color: #1a1a1a;
+            border-radius: 13px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
 
-.catalogo img{
-width:100%;
-display:block;
-}
+        .card:hover {
+            border-color: #ce93d8;
+            transform: translateY(-6px);
+            box-shadow: 0 6px 16px rgba(156, 39, 176, 0.25);
+        }
 
-.txt{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-color:white;
-font-size:clamp(25px, 8vw, 45px);
-font-weight:bold;
-text-align:center;
-text-shadow:0 0 15px black;
-}
+        .card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            height: 185px;
+            object-fit: cover;
+            border: 1px solid #333;
+        }
 
-.contas{
-display:none;
-padding:20px;
-}
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: #e1bee7;
+        }
 
-.card{
-background:white;
-margin-bottom:20px;
-border-radius:20px;
-padding:20px;
-text-align:center;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-transition:0.3s;
-}
+        .descricao {
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
 
-.card:hover{
-transform:translateY(-5px);
-}
+        .preco {
+            font-size: 23px;
+            font-weight: bold;
+            color: #69f0ae;
+            margin: 12px 0;
+        }
 
-.card img{
-width:100%;
-border-radius:15px;
-margin-bottom:10px;
-}
+        .botao-comprar {
+            background: linear-gradient(135deg, #9c27b0 0%, #3f51b5 100%);
+            color: white;
+            border: none;
+            padding: 11px 20px;
+            border-radius: 7px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: opacity 0.3s;
+        }
 
-.preco{
-color:green;
-font-size:25px;
-font-weight:bold;
-}
+        .botao-comprar:hover {
+            opacity: 0.88;
+        }
 
-button{
-width:100%;
-padding:15px;
-background:linear-gradient(90deg,#6f2cff,#4a18c9);
-border:none;
-color:white;border-radius:10px;
-font-size:18px;
-cursor:pointer;
-transition:0.3s;
-}
-
-button:hover{
-opacity:0.85;
-transform:scale(1.02);
-}
-
-</style>
-
+        footer {
+            background-color: #1a1a1a;
+            text-align: center;
+            padding: 18px;
+            margin-top: 40px;
+            border-top: 1px solid #333;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="topo">
-TOP BLOXX
-</div>
+    <header>
+        <a href="index.html" class="botao-voltar">← Voltar</a>
+        <h1>📋 CATÁLOGO COMPLETO 📋</h1>
+    </header>
 
-<div class="busca">
-<input placeholder="Buscar produto">
-</div>
 
-<div class="titulo">
-🎮 JOGOS DISPONÍVEIS
-</div>
+    <!-- CATEGORIA 1: CONTAS COM RAÇA V4 -->
+    <div class="categoria">
+        <h2>⚡ CONTAS COM RAÇA V4 ⚡</h2>
+    </div>
+    <div class="container">
 
-<div class="catalogo" onclick="abrir()">
+        <div class="card">
+            <img src="https://i.imgur.com/8sXz9Lp.png" alt="Conta V4 Draco">
+            <h3>Conta V4 DRACO</h3>
+            <p class="descricao">Level máximo • Draco V4 • Todas as engrenagens • Itens raros</p>
+            <div class="preco">R$ 45,00</div>
+            <button class="botao-comprar">Comprar Agora</button>
+        </div>
 
-<img src="https://images.unsplash.com/photo-1627856675698-74645f18c7b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-onerror="this.src='https://via.placeholder.com/800x400?text=Imagem+indisponivel'">
+        <div class="card">
+            <img src="https://i.imgur.com/7K2t8sA.png" alt="Conta V4 Aleatória">
+            <h3>Conta V4 Aleatória</h3>
+            <p class="descricao">Level máximo • Raça V4 qualquer • Fruta boa • Armas desbloqueadas</p>
+            <div class="preco">R$ 28,00</div>
+            <button class="botao-comprar">Comprar Agora</button>
+        </div>
 
-<div class="txt">
-CONTAS<br>
-BLOX FRUIT
-</div>
+        <div class="card">
+            <img src="https://i.imgur.com/7K2t8sA.png" alt="Conta V4 Ghoul">
+            <h3>Conta V4 GHOUL</h3>
+            <p class="descricao">Level máximo • Ghoul V4 • Habilidades liberadas • Fruta de graça</p>
+            <div class="preco">R$ 32,00</div>
+            <button class="botao-comprar">Comprar Agora</button>
+        </div>
 
-</div>
+        <div class="card">
+            <img src="https://i.imgur.com/7K2t8sA.png" alt="Conta V4 Mink">
+            <h3>Conta V4 MINK</h3>
+            <p class="descricao">Level máximo • Mink V4 • Velocidade máxima • Itens de evento</p>
+            <div class="preco">R$ 30,00</div>
+            <button class="botao-comprar">Comprar Agora</button>
+        </div>
 
-<div class="contas" id="contas">
+        <div class="card">
+            <img src="https://i.imgur.com/7K2t8sA.png" alt="Conta V4 Human">
+            <h3>Conta V4 HUMAN</h3>
+            <p class="descricao">Level máximo • Human V4 • Dano alto • Todas as espadas</p>
+            <div class="preco">R$ 29,00</div>
+            <button class="botao-comprar">Comprar Agora</button>
+        </div>
 
-<div class="card">
+        <div class="card">
+            <img src="https://i.imgur.com/7K2t8sA.png" alt="Conta V4 Shark">
+            <h3>Conta V4 SHARK</h3>
+            <p class="descricao">Level máximo • Shark V4 • Imunidade água • Fruta mitica</p>
+            <div class="preco">R$ 33,00</div>
+            <button class="botao-comprar">Comprar Agora</button>
+        </div>
 
-<img src="https://images.unsplash.com/photo-1593376912079-365e0d058076?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-onerror="this.src='https://via.placeholder.com/400x300?text=Conta+V4+Draco'">
+    </div>
 
-<h2>🐉 Conta V4 Draco</h2>
 
-<p class="preco">R$46,00</p>
+    <!-- CATEGORIA 2: CONTAS COM FRUTAS MÍTICAS -->
+    <div class="categoria">
+        <h2>🍇 CONTAS COM FRUTAS MÍTICAS 🍇</h2>
+    </div>
+    <div class="container">
 
-<button>Comprar</button>
+        <div class="card">
+            <img src="https://i.imgur.com/7K2t8sA.png" alt="Conta Dough V2">
+            <h3>Conta DOUGH V2</h3>
+            <p class="descricao">Level máximo • Dough V2 • Raça V3 • Todas missões feitas</p>
+            <div class="preco">R$ 38,00</div>
+            <button class="botao-comprar">Comprar Agora</button>
+        </div>
 
-</div>
+        <div class="card">
+            <img src="https://i.imgur.com/7K2t8sA.png" alt="Conta Leopard">
+            <h3>Conta LEOPARD</h3>
+            <p class="descricao">Level máximo • Fruta Leopard • Espadas raras • Dinheiro guardado</p>
+            <div class="preco">R$ 42,00</div>
+            <button class="botao-comprar">Comprar Agora</button>
+        </div>
 
-<div class="card">
+        <div class="card">
+            <img src="https://i.imgur.com/7K2t8sA.png" alt="Conta Kitsune">
+            <h3>Conta KITSUNE</h3>
+            <p class="descricao">Level máximo • Kitsune • Itens de evento • Raça V3 completa</p>
+            <div class="preco">R$ 50,00</div>
+            <button class="botao-comprar">Comprar Agora</button>
+        </div>
 
-<img src="https://images.unsplash.com/photo-1580587670778-47c4c29bb751?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-onerror="this.src='https://via.placeholder.com/400x300?text=Conta+Aleatoria'">
+        <div class="card">
+            <img src="https://i.imgur.com/7K2t8sA.png" alt="Conta T-Rex">
+            <h3>Conta T-REX</h3>
+            <p class="descricao">Level máximo • T-Rex • Habilidades liberadas • Muito dinheiro</p>
+            <div class="preco">R$ 36,00</div>
+            <button class="botao-comprar">Comprar Agora</button>
+        </div>
 
-<h2>🎲 Conta V4 Aleatória</h2>
+    </div>
 
-<p class="preco">R$5,00</p>
 
-<button>Comprar</button>
+    <!-- CATEGORIA 3: CONTAS COMPLETAS / TOP -->
+    <div class="categoria">
+        <h2>🏆 CONTAS COMPLETAS / TOP 🏆</h2>
+    </div>
+    <div class="container">
 
-</div>
+        <div class="card">
+            <img src="https://i.imgur.com/7K2t8sA.png" alt="Conta Completa">
+            <h3>CONTA COMPLETA</h3>
+            <p class="descricao">Tudo liberado • Todas frutas • Todas raças V4 • Todas espadas • Itens raros</p>
+            <div class="preco">R$ 80,00</div>
+            <button class="botao-comprar">Comprar Agora</button>
+        </div>
 
-</div>
+        <div class="card">
+            <img src="https://i.imgur.com/7K2t8sA.png" alt="Conta Sem Uso">
+            <h3>Conta SEMI-COMPLETA</h3>
+            <p class="descricao">Quase tudo liberado • 8 frutas míticas • 3 raças V4 • Espadas raras</p>
+            <div class="preco">R$ 55,00</div>
+            <button class="botao-comprar">Comprar Agora</button>
+        </div>
 
-<script>
+    </div>
 
-function abrir(){
-let contas = document.getElementById("contas");
-contas.style.display = contas.style.display === "block" ? "none" : "block";
-}
 
-</script>
+    <!-- CATEGORIA 4: CONTAS BARATAS / INICIANTE -->
+    <div class="categoria">
+        <h2>💰 CONTAS BARATAS / INICIANTE 💰</h2>
+    </div>
+    <div class="container">
+
+        <div class="card">
+            <img src="https://i.imgur.com/7K2t8sA.png" alt="Conta Level Max Simples">
+            <h3>Level Máx Simples</h3>
+            <p class="descricao">Level máximo • Fruta boa • Raça V2 • Pronto pra jogar</p>
+            <div class="preco">R$ 15,00</div>
+            <button class="botao-comprar">Comprar Agora</button>
+        </div>
+
+        <div class="card">
+            <img src="https://i.imgur.com/7K2t8sA.png" alt="Conta Iniciante">
+            <h3>Conta Iniciante</h3>
+            <p class="descricao">Level alto • Fruta legal • Começa já na frente</p>
+            <div class="preco">R$ 10,00</div>
+            <button class="botao-comprar">Comprar Agora</button>
+        </div>
+
+    </div>
+
+
+    <footer>
+        <p>&copy; 2026 Top Blox - Todos os direitos reservados | Entrega em até 15 minutos</p>
+    </footer>
 
 </body>
-  </html>
-  
+</html>
