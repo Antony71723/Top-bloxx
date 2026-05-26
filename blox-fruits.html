@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blox Fruits - Catálogo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0f0f0f;
+            color: #fff;
+        }
+
+        header {
+            background: linear-gradient(135deg, #9c27b0 0%, #3f51b5 100%);
+            padding: 22px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .botao-voltar {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255,255,255,0.18);
+            color: white;
+            padding: 9px 16px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        header h1 {
+            font-size: 27px;
+        }
+
+        .categoria {
+            max-width: 1200px;
+            margin: 35px auto 15px;
+            padding: 0 20px;
+        }
+
+        .categoria h2 {
+            color: #ce93d8;
+            font-size: 22px;
+            margin-bottom: 15px;
+            border-left: 4px solid #9c27b0;
+            padding-left: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto 30px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background-color: #1a1a1a;
+            border-radius: 13px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+
+        .card:hover {
+            border-color: #ce93d8;
+            transform: translateY(-6px);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            height: 185px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: #e1bee7;
+        }
+
+        .descricao {
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .preco {
+            font-size: 23px;
+            font-weight: bold;
+            color: #69f0ae;
+            margin: 12px 0;
+        }
+
+        .botao-comprar {
+            background: linear-gradient(135deg, #9c27b0 0%, #3f51b5 100%);
+            color: white;
+            border: none;
+            padding: 11px 20px;
+            border-radius: 7px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            text-align: center;
+            padding: 18px;
+            margin-top: 40px;
+            border-top: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="botao-voltar">← Voltar</a>
+        <h1>📋 CATÁLOGO BLOX FRUITS 📋</h1>
+    </header>
+
+    <!-- CONTAS COM IMAGENS CERTAS -->
+    <div class="categoria">
+        <h2>⚡ CONTAS COM RAÇA V4 ⚡</h2>
+    </div>
+    <div class="container">
+
+        <div class="card">
+            <img src="https://i.imgur.com/8sXz9Lp.png" alt="Conta V4 Draco">
+            <h3>Conta V4 DRACO</h3>
+            <p class="descricao">Level máximo • Draco V4 • Todas engrenagens • Itens raros</p>
+            <div class="preco">R$ 45,00</div>
+            <button class="botao-comprar">Comprar Agora</button>
+        </div>
+
+        <div class="card">
+            <img src="https://i.imgur.com/7K2t8sA.png" alt="Conta V4 Aleatória">
+            <h3>Conta V4 Aleatória</h3>
+            <p class="descricao">Level máximo • Raça V4 qualquer • Fruta boa • Armas liberadas</p>
+            <div class="preco">R$ 28,00</div>
+            <button class="botao-comprar">Comprar Agora</button>
+        </div>
+
+        <div class="card">
+            <img src="https://i.imgur.com/7K2t8sA.png" alt="Conta V4 Ghoul">
+            <h3>Conta V4 GHOUL</h3>
+            <p class="descricao">Level máximo • Ghoul V4 • Habilidades liberadas • Fruta de graça</p>
+            <div class="preco">R$ 32,00</div>
+            <button class="botao-comprar">Comprar Agora</button>
+        </div>
+
+        <div class="card">
+            <img src="https://i.imgur.com/7K2t8sA.png" alt="Conta V4 Mink">
+            <h3>Conta V4 MINK</h3>
+            <p class="descricao">Level máximo • Mink V4 • Velocidade máxima • Itens de evento</p>
+            <div class="preco">R$ 30,00</div>
+            <button class="botao-comprar">Comprar Agora</button>
+        </div>
+
+    </div>
+
+    <!-- MAIS CATEGORIAS AQUI... -->
+
+    <footer>
+        <p>&copy; 2026 Top Blox - Entrega rápida e garantida!</p>
+    </footer>
+
+</body>
+  </html>
+  
