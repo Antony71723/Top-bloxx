@@ -22,7 +22,7 @@
             padding: 22px;
             text-align: center;
             position: relative;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            box-shadow: 4px 4px 10px rgba(0,0,0,0.5);
         }
 
         .botao-voltar {
@@ -40,6 +40,16 @@
 
         header h1 {
             font-size: 27px;
+        }
+
+        .imagem-cabecalho {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin: 15px auto;
+            border-radius: 12px;
+            display: block;
+            border: 2px solid #ce93d8;
         }
 
         .barra-pesquisa-catalogo {
@@ -94,7 +104,7 @@
             text-align: center;
             border: 2px solid transparent;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            box-shadow: 4px 4px 12px rgba(0,0,0,0.4);
         }
 
         .card:hover {
@@ -107,10 +117,9 @@
             height: 185px;
             border-radius: 8px;
             margin-bottom: 15px;
-            background-size: contain;
+            background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-color: #2d2d2d;
             border: 1px solid #444;
         }
 
@@ -144,6 +153,8 @@
             cursor: pointer;
             width: 100%;
             transition: opacity 0.3s;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .botao-comprar:hover {
@@ -179,20 +190,6 @@
             color: #007bff;
             margin-bottom: 20px;
             font-size: 22px;
-        }
-
-        .qr-code {
-            width: 220px;
-            height: 220px;
-            margin: 15px auto;
-            border: 2px solid #eee;
-            border-radius: 8px;
-            background-color: #f5f5f5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            color: #666;
         }
 
         .codigo-pix {
@@ -250,6 +247,7 @@
     <header>
         <a href="index.html" class="botao-voltar">← Voltar</a>
         <h1>📋 CATÁLOGO BLOX FRUITS 📋</h1>
+        <img src="https://i.imgur.com/y6z3xw9.png" alt="Contas Blox Fruits" class="imagem-cabecalho">
     </header>
 
     <div class="barra-pesquisa-catalogo">
@@ -261,65 +259,73 @@
     </div>
     <div class="container" id="listaProdutos">
 
+        <!-- CONTA V4 DRACO -->
         <div class="card" data-nome="v4 draco" data-preco="45">
-            <div class="imagem-conta" style="background-image: url('https://i.imgur.com/9Z7X7yL.png')"></div>
+            <div class="imagem-conta" style="background-image: url('https://i.imgur.com/9z7x7yl.png')"></div>
             <h3>Conta V4 DRACO</h3>
             <p class="descricao">Level máximo • Draco V4 • Todas engrenagens • Itens raros</p>
             <div class="preco">R$ 45,00</div>
-            <button class="botao-comprar" onclick="abrirPix('45,00', '00020126580014br.gov.bcb.pix0136SUACHAVEPIX')">Comprar Agora</button>
+            <button class="botao-comprar" onclick="abrirPix('45,00', '89e911c9-9661-4154-af93-2a0f305079eb', 'draco')">Comprar Agora</button>
         </div>
 
+        <!-- CONTA V4 GHOUL -->
         <div class="card" data-nome="v4 ghoul" data-preco="32">
-            <div class="imagem-conta" style="background-image: url('https://i.imgur.com/3kLpQ8b.png')"></div>
+            <div class="imagem-conta" style="background-image: url('https://i.imgur.com/3klp8ba.png')"></div>
             <h3>Conta V4 GHOUL</h3>
             <p class="descricao">Level máximo • Ghoul V4 • Habilidades liberadas • Fruta de graça</p>
             <div class="preco">R$ 32,00</div>
-            <button class="botao-comprar" onclick="abrirPix('32,00', '00020126580014br.gov.bcb.pix0136SUACHAVEPIX')">Comprar Agora</button>
+            <button class="botao-comprar" onclick="abrirPix('32,00', '89e911c9-9661-4154-af93-2a0f305079eb', 'ghoul')">Comprar Agora</button>
         </div>
 
+        <!-- CONTA V4 MINK -->
         <div class="card" data-nome="v4 mink" data-preco="30">
-            <div class="imagem-conta" style="background-image: url('https://i.imgur.com/5tGfZbA.png')"></div>
+            <div class="imagem-conta" style="background-image: url('https://i.imgur.com/5tgfzba.png')"></div>
             <h3>Conta V4 MINK</h3>
             <p class="descricao">Level máximo • Mink V4 • Velocidade máxima • Itens de evento</p>
             <div class="preco">R$ 30,00</div>
-            <button class="botao-comprar" onclick="abrirPix('30,00', '00020126580014br.gov.bcb.pix0136SUACHAVEPIX')">Comprar Agora</button>
+            <button class="botao-comprar" onclick="abrirPix('30,00', '89e911c9-9661-4154-af93-2a0f305079eb', 'mink')">Comprar Agora</button>
         </div>
 
+        <!-- CONTA V4 HUMAN -->
         <div class="card" data-nome="v4 human" data-preco="29">
-            <div class="imagem-conta" style="background-image: url('https://i.imgur.com/2wQzX8M.png')"></div>
+            <div class="imagem-conta" style="background-image: url('https://i.imgur.com/2wqz7xm.png')"></div>
             <h3>Conta V4 HUMAN</h3>
             <p class="descricao">Level máximo • Human V4 • Dano alto • Todas as espadas</p>
             <div class="preco">R$ 29,00</div>
-            <button class="botao-comprar" onclick="abrirPix('29,00', '00020126580014br.gov.bcb.pix0136SUACHAVEPIX')">Comprar Agora</button>
+            <button class="botao-comprar" onclick="abrirPix('29,00', '89e911c9-9661-4154-af93-2a0f305079eb', 'human')">Comprar Agora</button>
         </div>
 
+        <!-- CONTA V4 SHARK -->
         <div class="card" data-nome="v4 shark" data-preco="33">
-            <div class="imagem-conta" style="background-image: url('https://i.imgur.com/7xRcV9N.png')"></div>
+            <div class="imagem-conta" style="background-image: url('https://i.imgur.com/7xrcv9n.png')"></div>
             <h3>Conta V4 SHARK</h3>
-            <p class="descricao">Level máximo • Shark V4 • Imunidade água • Fruta mitica</p>
+            <p class="descricao">Level máximo • Shark V4 • Imunidade água • Fruta mítica</p>
             <div class="preco">R$ 33,00</div>
-            <button class="botao-comprar" onclick="abrirPix('33,00', '00020126580014br.gov.bcb.pix0136SUACHAVEPIX')">Comprar Agora</button>
+            <button class="botao-comprar" onclick="abrirPix('33,00', '89e911c9-9661-4154-af93-2a0f305079eb', 'shark')">Comprar Agora</button>
         </div>
 
+        <!-- CONTA V4 ALEATÓRIA -->
         <div class="card" data-nome="v4 aleatória" data-preco="28">
-            <div class="imagem-conta" style="background-image: url('https://i.imgur.com/4vBnY6P.png')"></div>
+            <div class="imagem-conta" style="background-image: url('https://i.imgur.com/4vbnx6p.png')"></div>
             <h3>Conta V4 Aleatória</h3>
             <p class="descricao">Level máximo • Raça V4 qualquer • Fruta boa • Armas liberadas</p>
             <div class="preco">R$ 28,00</div>
-            <button class="botao-comprar" onclick="abrirPix('28,00', '00020126580014br.gov.bcb.pix0136SUACHAVEPIX')">Comprar Agora</button>
+            <button class="botao-comprar" onclick="abrirPix('28,00', '89e911c9-9661-4154-af93-2a0f305079eb', 'aleatoria')">Comprar Agora</button>
         </div>
 
     </div>
 
+    <!-- TELA DO PIX -->
     <div class="tela-pix" id="telaPix">
         <div class="caixa-pix">
             <h3>💳 PAGAMENTO VIA PIX</h3>
-            <p id="textoValor">Valor: R$ 0,00</p>
-            <div class="qr-code">QR CODE DO PIX</div>
-            <div class="codigo-pix" id="codigoPix">Código do Pix aqui...</div>
+            <p>Valor: <span id="valorPix">R$ 0,00</span></p>
+            <div class="codigo-pix" id="codigoPix"></div>
             <button class="botao-copiar" onclick="copiarCodigo()">📋 Copiar Código</button>
             <button class="botao-fechar" onclick="fecharPix()">❌ Fechar</button>
-            <p class="aviso">Após o pagamento, envie o comprovante no WhatsApp para receber sua conta! ✅</p>
+            <p class="aviso">Após pagar, clique no botão abaixo para ver seus dados:</p>
+            <br>
+            <a href="#" id="linkConta" class="botao-comprar">✅ Paguei, ver conta</a>
         </div>
     </div>
 
@@ -328,39 +334,43 @@
     </footer>
 
     <script>
-        function abrirPix(valor, codigo) {
-            document.getElementById('textoValor').textContent = `Valor: R$ ${valor}`;
-            document.getElementById('codigoPix').textContent = codigo;
+        // ABRIR TELA DO PIX
+        function abrirPix(valor, chave, idConta) {
+            document.getElementById('valorPix').textContent = 'R$ ' + valor;
+            document.getElementById('codigoPix').textContent = chave;
+            document.getElementById('linkConta').href = 'conta.html?id=' + idConta;
             document.getElementById('telaPix').style.display = 'flex';
             document.body.style.overflow = 'hidden';
         }
 
+        // FECHAR TELA
         function fecharPix() {
             document.getElementById('telaPix').style.display = 'none';
             document.body.style.overflow = 'auto';
         }
 
+        // COPIAR CÓDIGO
         function copiarCodigo() {
             let codigo = document.getElementById('codigoPix').textContent;
             navigator.clipboard.writeText(codigo);
-            alert('✅ Código copiado! É só pagar e enviar o comprovante.');
+            alert('✅ Código PIX copiado com sucesso!');
         }
 
+        // FECHAR CLICANDO FORA
         window.onclick = function(event) {
             let tela = document.getElementById('telaPix');
             if (event.target == tela) fecharPix();
         }
 
+        // SISTEMA DE PESQUISA
         const pesquisa = document.getElementById('pesquisaProduto');
         const produtos = document.querySelectorAll('.card');
 
         pesquisa.addEventListener('input', function() {
             let termo = pesquisa.value.toLowerCase().trim();
-
             produtos.forEach(produto => {
                 let nome = produto.getAttribute('data-nome');
                 let preco = produto.getAttribute('data-preco');
-
                 if (nome.includes(termo) || preco.includes(termo)) {
                     produto.classList.remove('escondido');
                 } else {
@@ -371,4 +381,5 @@
     </script>
 
 </body>
-</html>
+    </html>
+                                                                                                           
