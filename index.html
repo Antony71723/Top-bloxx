@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Blox - Loja Oficial</title>
+    <title>Top Blox - Início</title>
     <style>
         * {
             margin: 0;
@@ -13,137 +13,122 @@
         }
 
         body {
-            background-color: #f0f4ff;
+            background-color: #0f0f0f;
+            color: #fff;
         }
 
         header {
-            background-color: #007bff;
-            padding: 18px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+            background: linear-gradient(135deg, #9c27b0 0%, #3f51b5 100%);
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
 
-        .menu-icon {
-            color: white;
-            font-size: 26px;
-            font-weight: bold;
+        header h1 {
+            font-size: 30px;
+            margin-bottom: 8px;
         }
 
-        .logo {
-            color: white;
-            font-size: 32px;
-            font-weight: 900;
-            letter-spacing: 1px;
-        }
-
-        .carrinho {
-            background-color: white;
-            color: #007bff;
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-weight: bold;
-        }
-
-        .barra-pesquisa {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-
-        .barra-pesquisa input {
-            width: 100%;
-            padding: 12px 20px;
-            border-radius: 25px;
-            border: none;
+        header p {
             font-size: 16px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            opacity: 0.9;
         }
 
-        .titulo-jogos {
+        .container-jogos {
             max-width: 1200px;
-            margin: 10px auto 25px;
+            margin: 40px auto;
             padding: 0 20px;
-        }
-
-        .botao-titulo {
-            background-color: #e6f0ff;
-            color: #007bff;
-            border: 2px solid #007bff;
-            padding: 10px 25px;
-            border-radius: 25px;
-            font-size: 17px;
-            font-weight: bold;
-            display: inline-block;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto 40px;
-            padding: 0 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
         .card-jogo {
-            width: 100%;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            transition: transform 0.3s;
-            text-decoration: none;
-            background-color: #ddd;
-            height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #007bff;
-            font-size: 22px;
-            font-weight: bold;
+            background-color: #1a1a1a;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
         }
 
         .card-jogo:hover {
-            transform: scale(1.02);
+            border-color: #ce93d8;
+            transform: translateY(-8px);
+        }
+
+        .imagem-jogo {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            margin-bottom: 18px;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #2d2d2d;
+            border: 1px solid #444;
+        }
+
+        .card-jogo h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #e1bee7;
+        }
+
+        .card-jogo p {
+            font-size: 15px;
+            color: #ccc;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .botao-ver {
+            background: linear-gradient(135deg, #9c27b0 0%, #3f51b5 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 17px;
+            text-decoration: none;
+            display: inline-block;
+            transition: opacity 0.3s;
+        }
+
+        .botao-ver:hover {
+            opacity: 0.88;
         }
 
         footer {
-            background-color: #007bff;
-            color: white;
+            background-color: #1a1a1a;
             text-align: center;
-            padding: 15px;
-            margin-top: 30px;
+            padding: 20px;
+            margin-top: 50px;
+            border-top: 1px solid #333;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="menu-icon">≡</div>
-        <div class="logo">TOP BLOX</div>
-        <div class="carrinho">🛒</div>
+        <h1>🔥 TOP BLOX 🔥</h1>
+        <p>As melhores contas com entrega rápida e garantida!</p>
     </header>
 
-    <div class="barra-pesquisa">
-        <input type="text" placeholder="Buscar produto...">
-    </div>
-
-    <div class="titulo-jogos">
-        <div class="botao-titulo">🎮 JOGOS DISPONÍVEIS</div>
-    </div>
-
-    <div class="container">
-        <a href="blox-fruits.html" class="card-jogo">
-            🎮 BLOX FRUITS
-        </a>
-
+    <div class="container-jogos">
         <div class="card-jogo">
-            🧠 STEAL A BRAINROT
+            <div class="imagem-jogo" style="background-image: url('https://i.imgur.com/T9Z3qLb.png')"></div>
+            <h2>Blox Fruits</h2>
+            <p>Contas com raças V4, frutas míticas, level máximo e todos os itens raros disponíveis!</p>
+            <a href="blox-fruits.html" class="botao-ver">Ver Catálogo</a>
         </div>
 
+        <!-- SE QUISER ADICIONAR OUTROS JOGOS DEPOIS, É SÓ COLOCAR AQUI -->
         <div class="card-jogo">
-            🌊 FUJA DO TSUNAMI
+            <div class="imagem-jogo" style="background-image: url('https://i.imgur.com/5xY7s2A.png')"></div>
+            <h2>Outros Jogos</h2>
+            <p>Em breve mais jogos e contas incríveis para você aproveitar ao máximo!</p>
+            <a href="#" class="botao-ver">Em Breve</a>
         </div>
     </div>
 
