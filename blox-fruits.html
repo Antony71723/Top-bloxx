@@ -134,6 +134,14 @@
             margin: 12px 0;
         }
 
+        /* === ADICIONEI O ESTOQUE AQUI === */
+        .estoque {
+            font-size: 14px;
+            font-weight: bold;
+            color: #ff3b30;
+            margin-bottom: 12px;
+        }
+
         .botao-comprar {
             background: linear-gradient(135deg, #9c27b0 0%, #3f51b5 100%);
             color: white;
@@ -150,6 +158,148 @@
             opacity: 0.88;
         }
 
+        /* === ADICIONEI A TELA DO CARRINHO AQUI === */
+        .pagina-carrinho {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0f0f0f;
+            z-index: 998;
+            display: none;
+            overflow-y: auto;
+        }
+
+        .cabecalho-carrinho {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            border-bottom: 1px solid #333;
+        }
+
+        .cabecalho-carrinho h2 {
+            font-size: 24px;
+            color: #ce93d8;
+        }
+
+        .fechar-carrinho {
+            font-size: 28px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .conteudo-carrinho {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .item-carrinho {
+            display: flex;
+            border: 2px solid #ce93d8;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .img-item-carrinho {
+            width: 60%;
+            height: 140px;
+            object-fit: cover;
+        }
+
+        .info-item-carrinho {
+            width: 40%;
+            background: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .nome-item-carrinho {
+            font-size: 18px;
+            font-weight: bold;
+            color: #e1bee7;
+        }
+
+        .preco-item-carrinho {
+            font-size: 17px;
+            font-weight: bold;
+            color: #69f0ae;
+        }
+
+        .qtd {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .qtd button {
+            width: 30px;
+            height: 30px;
+            border: none;
+            border-radius: 4px;
+            background: #333;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .qtd span {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .resumo {
+            border: 2px solid #ce93d8;
+            border-radius: 12px;
+            padding: 20px;
+            background: #1a1a1a;
+        }
+
+        .resumo h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #e1bee7;
+        }
+
+        .valor-total {
+            font-size: 32px;
+            font-weight: bold;
+            color: #69f0ae;
+            margin-bottom: 20px;
+        }
+
+        .aviso {
+            background: #ffdddd;
+            color: #cc0000;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            margin: 15px 0;
+            font-weight: bold;
+            display: none;
+        }
+
+        .btn-finalizar {
+            width: 100%;
+            background: linear-gradient(135deg, #9c27b0 0%, #3f51b5 100%);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 19px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* === SUA TELA DE PIX QUE JÁ TAVA AQUI === */
         .tela-pix {
             display: none;
             position: fixed;
@@ -226,7 +376,7 @@
             margin-left: 8px;
         }
 
-        .aviso {
+        .aviso-pix {
             font-size: 12px;
             color: #666;
             margin-top: 15px;
@@ -261,65 +411,102 @@
     </div>
     <div class="container" id="listaProdutos">
 
-        <div class="card" data-nome="v4 draco" data-preco="45">
+        <!-- === SEUS PRODUTOS ORIGINAIS + ADICIONEI O CAMPO DE ESTOQUE === -->
+        <div class="card" data-id="1" data-nome="v4 draco" data-preco="45" data-estoque="0">
             <div class="imagem-conta" style="background-image: url('draco-contav4.png')"></div>
             <h3>Conta V4 DRACO</h3>
             <p class="descricao">Level máximo • Draco V4 • Todas engrenagens • Itens raros</p>
             <div class="preco">R$ 45,00</div>
-            <button class="botao-comprar" onclick="abrirPix('45,00', '00020126580014br.gov.bcb.pix0136SUACHAVEPIX')">Comprar Agora</button>
+            <div class="estoque">Estoque: 0 unidades</div>
+            <button class="botao-comprar" onclick="abrirCarrinho(1)">Comprar Agora</button>
         </div>
 
-        <div class="card" data-nome="v4 ghoul" data-preco="32">
+        <div class="card" data-id="2" data-nome="v4 ghoul" data-preco="28" data-estoque="0">
             <div class="imagem-conta" style="background-image: url('https://i.imgur.com/3kLpQ8b.png')"></div>
             <h3>Conta V4 GHOUL</h3>
             <p class="descricao">Level máximo • Ghoul V4 • Habilidades liberadas • Fruta de graça</p>
             <div class="preco">R$ 28,00</div>
-            <button class="botao-comprar" onclick="abrirPix('32,00', '00020126580014br.gov.bcb.pix0136SUACHAVEPIX')">Comprar Agora</button>
+            <div class="estoque">Estoque: 0 unidades</div>
+            <button class="botao-comprar" onclick="abrirCarrinho(2)">Comprar Agora</button>
         </div>
 
-        <div class="card" data-nome="v4 mink" data-preco="30">
+        <div class="card" data-id="3" data-nome="v4 mink" data-preco="9" data-estoque="5">
             <div class="imagem-conta" style="background-image: url('https://i.imgur.com/5tGfZbA.png')"></div>
             <h3>Conta V4 MINK</h3>
             <p class="descricao">Level máximo • Mink V4 • Velocidade máxima • Itens de evento</p>
             <div class="preco">R$ 9,00</div>
-            <button class="botao-comprar" onclick="abrirPix('30,00', '00020126580014br.gov.bcb.pix0136SUACHAVEPIX')">Comprar Agora</button>
+            <div class="estoque">Estoque: 5 unidades</div>
+            <button class="botao-comprar" onclick="abrirCarrinho(3)">Comprar Agora</button>
         </div>
 
-        <div class="card" data-nome="v4 human" data-preco="29">
+        <div class="card" data-id="4" data-nome="v4 human" data-preco="11" data-estoque="0">
             <div class="imagem-conta" style="background-image: url('https://i.imgur.com/2wQzX8M.png')"></div>
             <h3>Conta V4 HUMAN</h3>
             <p class="descricao">Level máximo • Human V4 • Dano alto • Todas as espadas</p>
             <div class="preco">R$ 11,00</div>
-            <button class="botao-comprar" onclick="abrirPix('29,00', '00020126580014br.gov.bcb.pix0136SUACHAVEPIX')">Comprar Agora</button>
+            <div class="estoque">Estoque: 0 unidades</div>
+            <button class="botao-comprar" onclick="abrirCarrinho(4)">Comprar Agora</button>
         </div>
 
-        <div class="card" data-nome="v4 shark" data-preco="33">
+        <div class="card" data-id="5" data-nome="v4 shark" data-preco="14" data-estoque="0">
             <div class="imagem-conta" style="background-image: url('https://i.imgur.com/7xRcV9N.png')"></div>
             <h3>Conta V4 SHARK</h3>
             <p class="descricao">Level máximo • Shark V4 • Imunidade água • Fruta mitica</p>
             <div class="preco">R$ 14,00</div>
-            <button class="botao-comprar" onclick="abrirPix('33,00', '00020126580014br.gov.bcb.pix0136SUACHAVEPIX')">Comprar Agora</button>
+            <div class="estoque">Estoque: 0 unidades</div>
+            <button class="botao-comprar" onclick="abrirCarrinho(5)">Comprar Agora</button>
         </div>
 
-        <div class="card" data-nome="v4 aleatória" data-preco="28">
+        <div class="card" data-id="6" data-nome="v4 aleatória" data-preco="5" data-estoque="0">
             <div class="imagem-conta" style="background-image: url('v4-aleatoria.png')"></div>
             <h3>Conta V4 Aleatória</h3>
             <p class="descricao">Level máximo • Raça V4 qualquer • Fruta boa • Armas liberadas</p>
             <div class="preco">R$ 5,00</div>
-            <button class="botao-comprar" onclick="abrirPix('28,00', '00020126580014br.gov.bcb.pix0136SUACHAVEPIX')">Comprar Agora</button>
+            <div class="estoque">Estoque: 0 unidades</div>
+            <button class="botao-comprar" onclick="abrirCarrinho(6)">Comprar Agora</button>
         </div>
 
     </div>
 
+    <!-- === TELA DO CARRINHO ADICIONADA AQUI === -->
+    <div class="pagina-carrinho" id="paginaCarrinho">
+        <div class="cabecalho-carrinho">
+            <h2>🛒 CARRINHO</h2>
+            <button class="fechar-carrinho" onclick="fecharCarrinho()">×</button>
+        </div>
+        <div class="conteudo-carrinho">
+            <div class="item-carrinho">
+                <img id="imgCarrinho" class="img-item-carrinho" src="" alt="">
+                <div class="info-item-carrinho">
+                    <div class="nome-item-carrinho" id="nomeCarrinho"></div>
+                    <div class="preco-item-carrinho" id="precoCarrinho"></div>
+                    <div class="qtd">
+                        <button onclick="alterarQtd(-1)">-</button>
+                        <span id="quantidade">1</span>
+                        <button onclick="alterarQtd(1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resumo">
+                <h3>Valor Total</h3>
+                <div class="valor-total" id="valorTotal">R$ 0,00</div>
+                <div class="aviso" id="avisoEstoque">❌ ESTE PRODUTO ESTÁ SEM ESTOQUE NO MOMENTO!</div>
+                <button class="btn-finalizar" onclick="finalizarCompra()">FINALIZAR COMPRA</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- === SUA TELA DE PIX ORIGINAL === -->
     <div class="tela-pix" id="telaPix">
         <div class="caixa-pix">
             <h3>💳 PAGAMENTO VIA PIX</h3>
             <p id="textoValor">Valor: R$ 0,00</p>
             <div class="qr-code">QR CODE DO PIX</div>
-            <div class="codigo-pix" id="codigoPix">Código do Pix aqui...</div>
+            <div class="codigo-pix" id="codigoPix">00020126580014br.gov.bcb.pix0136SUACHAVEPIX</div>
             <button class="botao-copiar" onclick="copiarCodigo()">📋 Copiar Código</button>
             <button class="botao-fechar" onclick="fecharPix()">❌ Fechar</button>
-            <p class="aviso">Após o pagamento, envie o comprovante no WhatsApp para receber sua conta! ✅</p>
+            <p class="aviso-pix">Após o pagamento, envie o comprovante no WhatsApp para receber sua conta! ✅</p>
         </div>
     </div>
 
@@ -328,6 +515,61 @@
     </footer>
 
     <script>
+        let produtoAtual;
+        let qtdAtual = 1;
+
+        // === FUNÇÕES DO CARRINHO E ESTOQUE ADICIONADAS ===
+        function abrirCarrinho(id) {
+            const todosProdutos = document.querySelectorAll('.card');
+            todosProdutos.forEach(prod => {
+                if(prod.getAttribute('data-id') == id) {
+                    produtoAtual = prod;
+                }
+            });
+
+            const nome = produtoAtual.getAttribute('data-nome').toUpperCase();
+            const preco = parseFloat(produtoAtual.getAttribute('data-preco'));
+            const img = produtoAtual.querySelector('.imagem-conta').style.backgroundImage.slice(5, -2);
+
+            document.getElementById('nomeCarrinho').textContent = nome;
+            document.getElementById('precoCarrinho').textContent = `R$ ${preco.toFixed(2).replace('.', ',')}`;
+            document.getElementById('imgCarrinho').src = img;
+            document.getElementById('quantidade').textContent = 1;
+            document.getElementById('valorTotal').textContent = `R$ ${preco.toFixed(2).replace('.', ',')}`;
+            document.getElementById('avisoEstoque').style.display = 'none';
+
+            qtdAtual = 1;
+            document.getElementById('paginaCarrinho').style.display = 'block';
+        }
+
+        function fecharCarrinho() {
+            document.getElementById('paginaCarrinho').style.display = 'none';
+        }
+
+        function alterarQtd(acao) {
+            qtdAtual += acao;
+            if(qtdAtual < 1) qtdAtual = 1;
+
+            const preco = parseFloat(produtoAtual.getAttribute('data-preco'));
+            const total = preco * qtdAtual;
+
+            document.getElementById('quantidade').textContent = qtdAtual;
+            document.getElementById('valorTotal').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+        }
+
+        function finalizarCompra() {
+            const estoque = parseInt(produtoAtual.getAttribute('data-estoque'));
+            const valorFinal = parseFloat(produtoAtual.getAttribute('data-preco')) * qtdAtual;
+
+            if(estoque <= 0) {
+                document.getElementById('avisoEstoque').style.display = 'block';
+            } else {
+                document.getElementById('paginaCarrinho').style.display = 'none';
+                abrirPix(valorFinal.toFixed(2).replace('.', ','), '00020126580014br.gov.bcb.pix0136SUACHAVEPIX');
+            }
+        }
+
+        // === SUAS FUNÇÕES DE PIX ORIGINAIS ===
         function abrirPix(valor, codigo) {
             document.getElementById('textoValor').textContent = `Valor: R$ ${valor}`;
             document.getElementById('codigoPix').textContent = codigo;
@@ -351,6 +593,7 @@
             if (event.target == tela) fecharPix();
         }
 
+        // === SUA PESQUISA ORIGINAL ===
         const pesquisa = document.getElementById('pesquisaProduto');
         const produtos = document.querySelectorAll('.card');
 
@@ -371,4 +614,5 @@
     </script>
 
 </body>
-</html>
+            </html>
+                    
