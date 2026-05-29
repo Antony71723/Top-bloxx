@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blox Fruits - Loja</title>
+    <title>Blox Fruits - Catálogo</title>
     <style>
         * {
             margin: 0;
@@ -13,11 +13,10 @@
         }
 
         body {
-            background-color: #f5f5f5;
-            color: #000;
+            background-color: #0f0f0f;
+            color: #fff;
         }
 
-        /* CATÁLOGO */
         header {
             background: linear-gradient(135deg, #9c27b0 0%, #3f51b5 100%);
             padding: 22px;
@@ -41,24 +40,28 @@
 
         header h1 {
             font-size: 27px;
-            color: white;
         }
 
-        .barra-pesquisa {
+        .barra-pesquisa-catalogo {
             max-width: 1200px;
             margin: 25px auto;
             padding: 0 20px;
         }
 
-        .barra-pesquisa input {
+        .barra-pesquisa-catalogo input {
             width: 100%;
             padding: 13px 22px;
             border-radius: 25px;
             border: none;
             font-size: 16px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            background: white;
-            border: 1px solid #ddd;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            background-color: #1a1a1a;
+            color: white;
+            border: 1px solid #333;
+        }
+
+        .barra-pesquisa-catalogo input::placeholder {
+            color: #aaa;
         }
 
         .categoria {
@@ -68,10 +71,11 @@
         }
 
         .categoria h2 {
+            color: #ce93d8;
             font-size: 22px;
-            border-left: 4px solid #4cd964;
+            margin-bottom: 15px;
+            border-left: 4px solid #9c27b0;
             padding-left: 10px;
-            color: #333;
         }
 
         .container {
@@ -84,21 +88,21 @@
         }
 
         .card {
-            background: white;
+            background-color: #1a1a1a;
             border-radius: 13px;
             padding: 20px;
             text-align: center;
-            border: 2px solid #eee;
-            transition: 0.3s;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
         }
 
         .card:hover {
-            border-color: #4cd964;
-            transform: translateY(-5px);
+            border-color: #ce93d8;
+            transform: translateY(-6px);
         }
 
-        .img-produto {
+        .imagem-conta {
             width: 100%;
             height: 185px;
             border-radius: 8px;
@@ -106,233 +110,62 @@
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
-            background: #f8f8f8;
-            border: 1px solid #eee;
+            background-color: #2d2d2d;
+            border: 1px solid #444;
         }
 
         .card h3 {
             font-size: 20px;
             margin-bottom: 8px;
-            color: #333;
+            color: #e1bee7;
         }
 
         .descricao {
             font-size: 14px;
-            color: #666;
+            color: #ccc;
             margin-bottom: 12px;
+            line-height: 1.4;
         }
 
         .preco {
             font-size: 23px;
             font-weight: bold;
-            color: #4cd964;
+            color: #69f0ae;
             margin: 12px 0;
         }
 
-        .estoque {
-            font-size: 14px;
-            font-weight: bold;
-            color: #ff3b30;
-            margin-bottom: 12px;
-        }
-
-        .btn-comprar {
-            background: #4cd964;
+        .botao-comprar {
+            background: linear-gradient(135deg, #9c27b0 0%, #3f51b5 100%);
             color: white;
             border: none;
-            padding: 12px;
+            padding: 11px 20px;
             border-radius: 7px;
-            width: 100%;
             font-size: 16px;
-            font-weight: bold;
             cursor: pointer;
-            transition: 0.3s;
+            width: 100%;
+            transition: opacity 0.3s;
         }
 
-        .btn-comprar:hover {
-            opacity: 0.85;
+        .botao-comprar:hover {
+            opacity: 0.88;
         }
 
-        /* PÁGINA CARRINHO */
-        .pagina-carrinho {
+        .tela-pix {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: white;
+            background-color: rgba(0,0,0,0.85);
             z-index: 999;
-            display: none;
-            overflow-y: auto;
-        }
-
-        .cabecalho-carrinho {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .cabecalho-carrinho h2 {
-            font-size: 24px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .fechar {
-            font-size: 28px;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        .conteudo-carrinho {
-            padding: 20px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .item {
-            display: flex;
-            border: 2px solid #4cd964;
-            border-radius: 12px;
-            overflow: hidden;
-            margin-bottom: 30px;
-        }
-
-        .img-item {
-            width: 60%;
-            height: 140px;
-            object-fit: cover;
-        }
-
-        .info-item {
-            width: 40%;
-            background: #e9e9e9;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-        }
-
-        .nome-item {
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .preco-item {
-            font-size: 17px;
-            font-weight: bold;
-            color: #4cd964;
-        }
-
-        .qtd {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .qtd button {
-            width: 30px;
-            height: 30px;
-            border: none;
-            border-radius: 4px;
-            background: #ddd;
-            font-size: 18px;
-            cursor: pointer;
-        }
-
-        .qtd span {
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .resumo {
-            border: 2px solid #4cd964;
-            border-radius: 12px;
-            padding: 20px;
-            background: #e9e9e9;
-        }
-
-        .resumo h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-        }
-
-        .valor-total {
-            font-size: 32px;
-            font-weight: bold;
-            color: #4cd964;
-            margin-bottom: 20px;
-        }
-
-        .cupom {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .cupom input {
-            flex: 1;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 16px;
-        }
-
-        .btn-cupom {
-            background: #4cd964;
-            color: white;
-            border: none;
-            padding: 12px 18px;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .btn-finalizar {
-            width: 100%;
-            background: #4cd964;
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 19px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .aviso {
-            background: #ffdddd;
-            color: #cc0000;
-            padding: 15px;
-            border-radius: 6px;
-            text-align: center;
-            margin: 15px 0;
-            font-weight: bold;
-            display: none;
-        }
-
-        /* PÁGINA PIX */
-        .pagina-pix {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.85);
-            z-index: 9999;
-            display: none;
             justify-content: center;
             align-items: center;
             padding: 20px;
         }
 
         .caixa-pix {
-            background: white;
+            background-color: white;
             color: #000;
             border-radius: 15px;
             padding: 30px;
@@ -372,37 +205,43 @@
             border: 1px solid #ddd;
         }
 
-        .botoes-pix {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
         .botao-copiar {
             background-color: #007bff;
             color: white;
             border: none;
-            padding: 10px 18px;
+            padding: 8px 15px;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 15px;
+            margin-top: 10px;
         }
 
-        .botao-fechar-pix {
+        .botao-fechar {
             background-color: #dc3545;
             color: white;
             border: none;
-            padding: 10px 18px;
+            padding: 8px 15px;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 15px;
+            margin-top: 15px;
+            margin-left: 8px;
         }
 
-        .aviso-pix {
+        .aviso {
             font-size: 12px;
             color: #666;
             margin-top: 15px;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            text-align: center;
+            padding: 18px;
+            margin-top: 40px;
+            border-top: 1px solid #333;
+        }
+
+        .escondido {
+            display: none !important;
         }
     </style>
 </head>
@@ -413,7 +252,7 @@
         <h1> CATÁLOGO DE BLOX FRUITS </h1>
     </header>
 
-    <div class="barra-pesquisa">
+    <div class="barra-pesquisa-catalogo">
         <input type="text" id="pesquisaProduto" placeholder="🔍 Pesquisar conta por nome, raça ou preço...">
     </div>
 
@@ -422,201 +261,114 @@
     </div>
     <div class="container" id="listaProdutos">
 
-        <!-- PRODUTO 1 - ESTOQUE 0 -->
-        <div class="card" data-id="1" data-nome="v4 draco" data-preco="45" data-estoque="0">
-            <div class="img-produto" style="background-image: url('https://i.imgur.com/8Z7X7yL.png')"></div>
+        <div class="card" data-nome="v4 draco" data-preco="45">
+            <div class="imagem-conta" style="background-image: url('draco-contav4.png')"></div>
             <h3>Conta V4 DRACO</h3>
             <p class="descricao">Level máximo • Draco V4 • Todas engrenagens • Itens raros</p>
             <div class="preco">R$ 45,00</div>
-            <div class="estoque">Estoque: 0 unidades</div>
-            <button class="btn-comprar" onclick="abrirCarrinho(1)">Comprar</button>
+            <button class="botao-comprar" onclick="abrirPix('45,00', '00020126580014br.gov.bcb.pix0136SUACHAVEPIX')">Comprar Agora</button>
         </div>
 
-        <!-- PRODUTO 2 - ESTOQUE 0 -->
-        <div class="card" data-id="2" data-nome="v4 ghoul" data-preco="28" data-estoque="0">
-            <div class="img-produto" style="background-image: url('https://i.imgur.com/3kLpQ8b.png')"></div>
+        <div class="card" data-nome="v4 ghoul" data-preco="32">
+            <div class="imagem-conta" style="background-image: url('https://i.imgur.com/3kLpQ8b.png')"></div>
             <h3>Conta V4 GHOUL</h3>
             <p class="descricao">Level máximo • Ghoul V4 • Habilidades liberadas • Fruta de graça</p>
             <div class="preco">R$ 28,00</div>
-            <div class="estoque">Estoque: 0 unidades</div>
-            <button class="btn-comprar" onclick="abrirCarrinho(2)">Comprar</button>
+            <button class="botao-comprar" onclick="abrirPix('32,00', '00020126580014br.gov.bcb.pix0136SUACHAVEPIX')">Comprar Agora</button>
         </div>
 
-        <!-- PRODUTO 3 - ESTOQUE 5 (PRA TESTAR O PIX) -->
-        <div class="card" data-id="3" data-nome="v4 mink" data-preco="9" data-estoque="5">
-            <div class="img-produto" style="background-image: url('https://i.imgur.com/5tGfZbA.png')"></div>
+        <div class="card" data-nome="v4 mink" data-preco="30">
+            <div class="imagem-conta" style="background-image: url('https://i.imgur.com/5tGfZbA.png')"></div>
             <h3>Conta V4 MINK</h3>
             <p class="descricao">Level máximo • Mink V4 • Velocidade máxima • Itens de evento</p>
             <div class="preco">R$ 9,00</div>
-            <div class="estoque">Estoque: 5 unidades</div>
-            <button class="btn-comprar" onclick="abrirCarrinho(3)">Comprar</button>
+            <button class="botao-comprar" onclick="abrirPix('30,00', '00020126580014br.gov.bcb.pix0136SUACHAVEPIX')">Comprar Agora</button>
         </div>
 
-        <!-- MAIS PRODUTOS -->
-        <div class="card" data-id="4" data-nome="v4 human" data-preco="11" data-estoque="0">
-            <div class="img-produto" style="background-image: url('https://i.imgur.com/2wQzX8M.png')"></div>
+        <div class="card" data-nome="v4 human" data-preco="29">
+            <div class="imagem-conta" style="background-image: url('https://i.imgur.com/2wQzX8M.png')"></div>
             <h3>Conta V4 HUMAN</h3>
             <p class="descricao">Level máximo • Human V4 • Dano alto • Todas as espadas</p>
             <div class="preco">R$ 11,00</div>
-            <div class="estoque">Estoque: 0 unidades</div>
-            <button class="btn-comprar" onclick="abrirCarrinho(4)">Comprar</button>
+            <button class="botao-comprar" onclick="abrirPix('29,00', '00020126580014br.gov.bcb.pix0136SUACHAVEPIX')">Comprar Agora</button>
         </div>
 
-        <div class="card" data-id="5" data-nome="v4 shark" data-preco="14" data-estoque="0">
-            <div class="img-produto" style="background-image: url('https://i.imgur.com/7xRcV9N.png')"></div>
+        <div class="card" data-nome="v4 shark" data-preco="33">
+            <div class="imagem-conta" style="background-image: url('https://i.imgur.com/7xRcV9N.png')"></div>
             <h3>Conta V4 SHARK</h3>
             <p class="descricao">Level máximo • Shark V4 • Imunidade água • Fruta mitica</p>
             <div class="preco">R$ 14,00</div>
-            <div class="estoque">Estoque: 0 unidades</div>
-            <button class="btn-comprar" onclick="abrirCarrinho(5)">Comprar</button>
+            <button class="botao-comprar" onclick="abrirPix('33,00', '00020126580014br.gov.bcb.pix0136SUACHAVEPIX')">Comprar Agora</button>
         </div>
 
-        <div class="card" data-id="6" data-nome="v4 aleatória" data-preco="5" data-estoque="0">
-            <div class="img-produto" style="background-image: url('https://i.imgur.com/9tU8aLb.png')"></div>
+        <div class="card" data-nome="v4 aleatória" data-preco="28">
+            <div class="imagem-conta" style="background-image: url('v4-aleatoria.png')"></div>
             <h3>Conta V4 Aleatória</h3>
             <p class="descricao">Level máximo • Raça V4 qualquer • Fruta boa • Armas liberadas</p>
             <div class="preco">R$ 5,00</div>
-            <div class="estoque">Estoque: 0 unidades</div>
-            <button class="btn-comprar" onclick="abrirCarrinho(6)">Comprar</button>
+            <button class="botao-comprar" onclick="abrirPix('28,00', '00020126580014br.gov.bcb.pix0136SUACHAVEPIX')">Comprar Agora</button>
         </div>
 
     </div>
 
-    <!-- PÁGINA CARRINHO -->
-    <div class="pagina-carrinho" id="paginaCarrinho">
-        <div class="cabecalho-carrinho">
-            <h2>🛒 CARRINHO</h2>
-            <button class="fechar" onclick="fecharCarrinho()">×</button>
-        </div>
-        <div class="conteudo-carrinho">
-            <div class="item">
-                <img id="imgCarrinho" class="img-item" src="" alt="">
-                <div class="info-item">
-                    <div class="nome-item" id="nomeCarrinho"></div>
-                    <div class="preco-item" id="precoCarrinho"></div>
-                    <div class="qtd">
-                        <button onclick="alterarQtd(-1)">-</button>
-                        <span id="quantidade">1</span>
-                        <button onclick="alterarQtd(1)">+</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="resumo">
-                <h3>Valor Total</h3>
-                <div class="valor-total" id="valorTotal">R$ 0,00</div>
-                <div class="cupom">
-                    <input type="text" placeholder="Cupom de desconto">
-                    <button class="btn-cupom">Aplicar</button>
-                </div>
-                <div class="aviso" id="avisoEstoque">❌ ESTE PRODUTO ESTÁ SEM ESTOQUE NO MOMENTO!</div>
-                <button class="btn-finalizar" onclick="finalizarCompra()">FINALIZAR COMPRA</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- PÁGINA PIX -->
-    <div class="pagina-pix" id="paginaPix">
+    <div class="tela-pix" id="telaPix">
         <div class="caixa-pix">
-            <h3>Pagamento via PIX</h3>
-            <div class="qr-code">QR CODE AQUI</div>
-            <div class="codigo-pix" id="codigoPix">00020126360014br.gov.bcb.pix0114+55719999999990212LOJA TOP BLOX52040000530398654041.005802BR5915LOJA BLOX FRUITS6009SALVADOR62070503***6304E3F5</div>
-            <div class="botoes-pix">
-                <button class="botao-copiar" onclick="copiarPix()">Copiar Código PIX</button>
-                <button class="botao-fechar-pix" onclick="fecharPix()">Fechar</button>
-            </div>
-            <p class="aviso-pix">Após o pagamento, envie o comprovante no nosso WhatsApp para liberação imediata!</p>
+            <h3>💳 PAGAMENTO VIA PIX</h3>
+            <p id="textoValor">Valor: R$ 0,00</p>
+            <div class="qr-code">QR CODE DO PIX</div>
+            <div class="codigo-pix" id="codigoPix">Código do Pix aqui...</div>
+            <button class="botao-copiar" onclick="copiarCodigo()">📋 Copiar Código</button>
+            <button class="botao-fechar" onclick="fecharPix()">❌ Fechar</button>
+            <p class="aviso">Após o pagamento, envie o comprovante no WhatsApp para receber sua conta! ✅</p>
         </div>
     </div>
+
+    <footer>
+        <p>&copy; 2026 Top Blox - Entrega rápida e garantida!</p>
+    </footer>
 
     <script>
-        let produtoAtual;
-        let qtdAtual = 1;
-
-        // ABRIR CARRINHO
-        function abrirCarrinho(id) {
-            const todosProdutos = document.querySelectorAll('.card');
-            todosProdutos.forEach(prod => {
-                if(prod.getAttribute('data-id') == id) {
-                    produtoAtual = prod;
-                }
-            });
-
-            const nome = produtoAtual.getAttribute('data-nome').toUpperCase();
-            const preco = parseFloat(produtoAtual.getAttribute('data-preco'));
-            const img = produtoAtual.querySelector('.img-produto').style.backgroundImage.slice(5, -2);
-
-            document.getElementById('nomeCarrinho').textContent = nome;
-            document.getElementById('precoCarrinho').textContent = `R$ ${preco.toFixed(2).replace('.', ',')}`;
-            document.getElementById('imgCarrinho').src = img;
-            document.getElementById('quantidade').textContent = 1;
-            document.getElementById('valorTotal').textContent = `R$ ${preco.toFixed(2).replace('.', ',')}`;
-            document.getElementById('avisoEstoque').style.display = 'none';
-
-            qtdAtual = 1;
-            document.getElementById('paginaCarrinho').style.display = 'block';
+        function abrirPix(valor, codigo) {
+            document.getElementById('textoValor').textContent = `Valor: R$ ${valor}`;
+            document.getElementById('codigoPix').textContent = codigo;
+            document.getElementById('telaPix').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
         }
 
-        // FECHAR CARRINHO
-        function fecharCarrinho() {
-            document.getElementById('paginaCarrinho').style.display = 'none';
-        }
-
-        // ALTERAR QUANTIDADE
-        function alterarQtd(acao) {
-            qtdAtual += acao;
-            if(qtdAtual < 1) qtdAtual = 1;
-
-            const preco = parseFloat(produtoAtual.getAttribute('data-preco'));
-            const total = preco * qtdAtual;
-
-            document.getElementById('quantidade').textContent = qtdAtual;
-            document.getElementById('valorTotal').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
-        }
-
-        // FINALIZAR COMPRA - AQUI ESTÁ AS DUAS REGRAS QUE VOCÊ PEDIU!!!
-        function finalizarCompra() {
-            const estoque = parseInt(produtoAtual.getAttribute('data-estoque'));
-
-            // REGRA 1: SE ESTOQUE = 0 → MOSTRA AVISO
-            if(estoque <= 0) {
-                document.getElementById('avisoEstoque').style.display = 'block';
-            } 
-            // REGRA 2: SE ESTOQUE > 0 → ABRE PÁGINA DO PIX COM QR, CÓDIGO, COPIAR E FECHAR
-            else {
-                document.getElementById('paginaCarrinho').style.display = 'none';
-                document.getElementById('paginaPix').style.display = 'flex';
-            }
-        }
-
-        // COPIAR PIX
-        function copiarPix() {
-            const codigo = document.getElementById('codigoPix').textContent;
-            navigator.clipboard.writeText(codigo);
-            alert('Código PIX copiado com sucesso!');
-        }
-
-        // FECHAR PIX
         function fecharPix() {
-            document.getElementById('paginaPix').style.display = 'none';
+            document.getElementById('telaPix').style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
 
-        // PESQUISAR PRODUTO
-        document.getElementById('pesquisaProduto').addEventListener('input', function() {
-            const termo = this.value.toLowerCase();
-            const produtos = document.querySelectorAll('.card');
+        function copiarCodigo() {
+            let codigo = document.getElementById('codigoPix').textContent;
+            navigator.clipboard.writeText(codigo);
+            alert('✅ Código copiado! É só pagar e enviar o comprovante.');
+        }
 
-            produtos.forEach(prod => {
-                const nome = prod.getAttribute('data-nome').toLowerCase();
-                if(nome.includes(termo)) {
-                    prod.style.display = 'block';
+        window.onclick = function(event) {
+            let tela = document.getElementById('telaPix');
+            if (event.target == tela) fecharPix();
+        }
+
+        const pesquisa = document.getElementById('pesquisaProduto');
+        const produtos = document.querySelectorAll('.card');
+
+        pesquisa.addEventListener('input', function() {
+            let termo = pesquisa.value.toLowerCase().trim();
+
+            produtos.forEach(produto => {
+                let nome = produto.getAttribute('data-nome');
+                let preco = produto.getAttribute('data-preco');
+
+                if (nome.includes(termo) || preco.includes(termo)) {
+                    produto.classList.remove('escondido');
                 } else {
-                    prod.style.display = 'none';
+                    produto.classList.add('escondido');
                 }
             });
         });
     </script>
 
 </body>
-            </html>
-            
+</html>
