@@ -72,7 +72,7 @@
             <p id="valorTotal" class="text-verde text-3xl font-bold">R$ 0,00</p>
         </div>
 
-        <!-- Aviso de Estoque -->
+        <!-- Aviso SÓ APARECE QUANDO CLICAR EM FINALIZAR E NÃO TIVER ESTOQUE -->
         <div id="avisoEstoque" class="bg-vermelho/10 text-vermelho font-bold text-center py-3 rounded-lg mb-5 text-lg hidden">
             ❌ ESTE PRODUTO ESTÁ SEM ESTOQUE NO MOMENTO!
         </div>
@@ -85,59 +85,49 @@
 </main>
 
 <script>
-// Pegar dados do produto que veio da página anterior
 const produto = JSON.parse(localStorage.getItem('produtoCarrinho') || 'null');
-let quantidade = 1; // Começa sempre com 1
+let quantidade = 1;
 
-// Carregar tudo quando abrir a página
 window.addEventListener('DOMContentLoaded', () => {
     if (!produto) {
         document.querySelector('main').innerHTML = '<p class="text-center text-gray-400 mt-10">Seu carrinho está vazio</p>';
         return;
     }
 
-    // Mostra os dados do produto escolhido
     document.getElementById('imagemProduto').src = produto.imagem;
     document.getElementById('nomeProduto').textContent = produto.nome;
     document.getElementById('precoUnitario').textContent = `R$ ${produto.preco.toFixed(2).replace('.', ',')}`;
-
-    // Calcula e mostra o valor total já no começo
     atualizarTotal();
-
-    // Mostra aviso se estiver sem estoque
-    if (produto.estoque <= 0) {
-        document.getElementById('avisoEstoque').classList.remove('hidden');
-    }
 });
 
-// AUMENTAR quantidade e preço
 function aumentarQtd() {
     quantidade++;
     document.getElementById('quantidade').textContent = quantidade;
     atualizarTotal();
 }
 
-// DIMINUIR quantidade e preço
 function diminuirQtd() {
-    if (quantidade > 1) { // Não deixa ficar menor que 1
+    if (quantidade > 1) {
         quantidade--;
         document.getElementById('quantidade').textContent = quantidade;
         atualizarTotal();
     }
 }
 
-// Atualiza o valor total SOMANDO conforme a quantidade
 function atualizarTotal() {
     const total = produto.preco * quantidade;
     document.getElementById('valorTotal').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
 }
 
-// Verifica estoque ao finalizar
+// FUNÇÃO AJUSTADA EXATAMENTE COMO VOCÊ QUER
 function verificarEstoque() {
     if (produto.estoque <= 0) {
+        // Se NÃO tiver estoque → mostra aviso
         document.getElementById('avisoEstoque').classList.remove('hidden');
     } else {
-        alert('✅ Compra realizada com sucesso!');
+        // Se TIVER estoque → guarda a quantidade e abre página de pagamento
+        localStorage.setItem('quantidadeComprada', quantidade);
+        window.location.href = 'pagamento.html';
     }
 }
 </script>
