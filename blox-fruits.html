@@ -1,660 +1,289 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Blox | Comprar</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background-color: #000000;
-            color: #ffffff;
-        }
-
-        header {
-            background-color: #121214;
-            padding: 16px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .esquerda {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .botao-voltar {
-            background-color: #5B21B6;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 6px;
-            font-size: 15px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .logo {
-            width: 46px;
-            height: 46px;
-            border-radius: 8px;
-            background-image: url('draco-contav4.png');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .info-loja h1 {
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .info-loja p {
-            font-size: 14px;
-            color: #CCCCCC;
-        }
-
-        .direita {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .icone {
-            color: white;
-            font-size: 20px;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .badge {
-            position: absolute;
-            top: -7px;
-            right: -9px;
-            background-color: #EF4444;
-            color: white;
-            font-size: 11px;
-            width: 19px;
-            height: 19px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .botao-entrar {
-            background-color: #7E22CE;
-            color: white;
-            border: none;
-            padding: 9px 17px;
-            border-radius: 6px;
-            font-weight: bold;
-            font-size: 15px;
-            cursor: pointer;
-        }
-
-        .titulo-pagina {
-            padding: 22px 20px;
-            font-size: 22px;
-            font-weight: bold;
-            line-height: 1.3;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto 30px;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-        }
-
-        .card {
-            background-color: #121214;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid #2A2A2C;
-            position: relative;
-        }
-
-        .status {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            color: white;
-            font-size: 13px;
-            font-weight: bold;
-            padding: 4px 11px;
-            border-radius: 4px;
-            z-index: 2;
-        }
-        .esgotado {background-color: #EF4444;}
-        .disponivel {background-color: #10B981;}
-
-        .img-produto {
-            width: 100%;
-            height: 165px;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0.8;
-        }
-
-        .conteudo-card {
-            padding: 13px;
-        }
-
-        .nome-produto {
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 9px;
-            line-height: 1.3;
-        }
-
-        .preco-antigo {
-            font-size: 12px;
-            color: #999999;
-            text-decoration: line-through;
-            margin-bottom: 3px;
-        }
-
-        .preco-novo {
-            font-size: 16px;
-            font-weight: bold;
-            color: #ffffff;
-            margin-bottom: 2px;
-        }
-
-        .texto-pix {
-            font-size: 12px;
-            color: #10B981;
-            margin-bottom: 13px;
-        }
-
-        .botoes {
-            display: flex;
-            gap: 9px;
-            align-items: center;
-            margin-bottom: 7px;
-        }
-
-        .btn-comprar {
-            flex: 1;
-            background-color: #7E22CE;
-            color: white;
-            border: none;
-            padding: 10px 0;
-            border-radius: 5px;
-            font-size: 14px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .btn-carrinho {
-            width: 38px;
-            height: 38px;
-            background-color: transparent;
-            border: 1px solid #555555;
-            color: white;
-            border-radius: 5px;
-            font-size: 17px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .texto-estoque {
-            font-size: 12px;
-            font-weight: bold;
-        }
-        .estoque-vazio {color: #EF4444;}
-        .estoque-disponivel {color: #10B981;}
-
-        .pagina-carrinho {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #000000;
-            z-index: 999;
-            display: none;
-            overflow-y: auto;
-            padding-bottom: 30px;
-        }
-
-        .cabecalho-carrinho {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px;
-            border-bottom: 1px solid #2A2A2C;
-            position: sticky;
-            top:0;
-            background:#121214;
-        }
-
-        .cabecalho-carrinho h2 {
-            font-size: 23px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .fechar {
-            font-size: 27px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color:white;
-            width:42px;
-            height:42px;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            border-radius:50%;
-        }
-        .fechar:hover {background:#2A2A2C;}
-
-        .conteudo-carrinho {
-            padding: 20px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .item {
-            display: flex;
-            border: 2px solid #7E22CE;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 30px;
-            flex-wrap:wrap;
-            background:#121214;
-        }
-
-        .img-item {
-            width: 100%;
-            max-height: 200px;
-            object-fit: cover;
-        }
-
-        .info-item {
-            width: 100%;
-            background: #1E1E20;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            padding:15px;
-        }
-
-        .nome-item {
-            font-size: 17px;
-            font-weight: bold;
-            text-align:center;
-        }
-
-        .preco-item {
-            font-size: 16px;
-            font-weight: bold;
-            color: #10B981;
-        }
-
-        .qtd {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .qtd button {
-            width: 30px;
-            height: 30px;
-            border: none;
-            border-radius: 4px;
-            background: #333;
-            color:white;
-            font-size: 18px;
-            cursor: pointer;
-        }
-
-        .qtd span {
-            font-size: 17px;
-            font-weight: bold;
-        }
-
-        .resumo {
-            border: 2px solid #7E22CE;
-            border-radius: 10px;
-            padding: 20px;
-            background: #121214;
-        }
-
-        .resumo h3 {
-            font-size: 21px;
-            margin-bottom: 15px;
-        }
-
-        .valor-total {
-            font-size: 29px;
-            font-weight: bold;
-            color: #10B981;
-            margin-bottom: 20px;
-        }
-
-        .cupom {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap:wrap;
-        }
-
-        .cupom input {
-            flex: 1;
-            min-width:200px;
-            padding: 12px;
-            border: 1px solid #333;
-            border-radius: 6px;
-            font-size: 15px;
-            background:#1E1E20;
-            color:white;
-        }
-
-        .btn-cupom {
-            background: #7E22CE;
-            color: white;
-            border: none;
-            padding: 12px 18px;
-            border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
-            white-space:nowrap;
-        }
-
-        .btn-finalizar {
-            width: 100%;
-            background: #7E22CE;
-            color: white;
-            border: none;
-            padding: 14px;
-            border-radius: 6px;
-            font-size: 17px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .aviso {
-            background: #EF444420;
-            color: #EF4444;
-            padding: 15px;
-            border-radius: 6px;
-            text-align: center;
-            margin: 15px 0;
-            font-weight: bold;
-            display: none;
-        }
-
-        .pagina-pix {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 9999;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            overflow-y:auto;
-        }
-
-        .caixa-pix {
-            background: #121214;
-            color: white;
-            border-radius: 10px;
-            padding: 30px;
-            max-width: 400px;
-            width: 100%;
-            text-align: center;
-            border:1px solid #7E22CE;
-        }
-
-        .caixa-pix h3 {
-            color: #7E22CE;
-            margin-bottom: 20px;
-            font-size: 21px;
-        }
-
-        .qr-code {
-            width: 220px;
-            height: 220px;
-            margin: 15px auto;
-            border: 2px solid #2A2A2C;
-            border-radius: 6px;
-            background-color: #1E1E20;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            color: #999;
-        }
-
-        .codigo-pix {
-            background-color: #1E1E20;
-            padding: 12px;
-            border-radius: 6px;
-            margin: 15px 0;
-            font-size: 13px;
-            word-break: break-all;
-            border: 1px solid #333;
-        }
-
-        .botoes-pix {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .botao-copiar {
-            background-color: #7E22CE;
-            color: white;
-            border: none;
-            padding: 10px 18px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 15px;
-        }
-
-        .botao-fechar-pix {
-            background-color: #EF4444;
-            color: white;
-            border: none;
-            padding: 10px 18px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 15px;
-        }
-
-        .aviso-pix {
-            font-size: 12px;
-            color: #999;
-            margin-top: 15px;
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="esquerda">
-            <button class="botao-voltar" onclick="voltar()">
-                ← Voltar
-            </button>
-            <div class="logo"></div>
-            <div class="info-loja">
-                <h1>The Blox | Comprar</h1>
-                <p>Contas De Blox Fruits</p>
-            </div>
-        </div>
-
-        <div class="direita">
-            <div class="icone">🔍</div>
-            <div class="icone">🎧</div>
-            <div class="icone">
-                🛍️
-                <div class="badge">0</div>
-            </div>
-            <button class="botao-entrar">Entrar</button>
-        </div>
-    </header>
-
-    <h1 class="titulo-pagina">Contas CUSTO-BENEFÍCIO | CONTAS DE BLOX FRUITS</h1>
-
-    <div class="container" id="listaProdutos">
-
-        <div class="card" data-id="1" data-nome="✨🍎 2 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX" data-preco="11.99" data-estoque="0">
-            <div class="status esgotado">ESGOTADO</div>
-            <div class="img-produto" style="background-image: url('https://i.imgur.com/7X6W5vB.jpeg')"></div>
-            <div class="conteudo-card">
-                <h3 class="nome-produto">✨🍎 2 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX</h3>
-                <p class="preco-antigo">R$ 29,00</p>
-                <p class="preco-novo">R$ 11,99</p>
-                <p class="texto-pix">À vista no PIX</p>
-                <div class="botoes">
-                    <button class="btn-comprar" onclick="abrirCarrinho(1)">Comprar</button>
-                    <button class="btn-carrinho" onclick="abrirCarrinho(1)">🛍️</button>
-                </div>
-                <p class="texto-estoque estoque-vazio">Estoque: Vazio</p>
-            </div>
-        </div>
-
-        <div class="card" data-id="2" data-nome="🔥🍓 3-7 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX" data-preco="16.63" data-estoque="0">
-            <div class="status esgotado">ESGOTADO</div>
-            <div class="img-produto" style="background-image: url('https://i.imgur.com/6V5U4aB.jpeg')"></div>
-            <div class="conteudo-card">
-                <h3 class="nome-produto">🔥🍓 3-7 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX</h3>
-                <p class="preco-antigo">R$ 40,00</p>
-                <p class="preco-novo">R$ 16.63</p>
-                <p class="texto-pix">À vista no PIX</p>
-                <div class="botoes">
-                    <button class="btn-comprar" onclick="abrirCarrinho(2)">Comprar</button>
-                    <button class="btn-carrinho" onclick="abrirCarrinho(2)">🛍️</button>
-                </div>
-                <p class="texto-estoque estoque-vazio">Estoque: Vazio</p>
-            </div>
-        </div>
-
-        <div class="card" data-id="3" data-nome="✨🍏🍎🔷 4-6 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX" data-preco="27.09" data-estoque="5">
-            <div class="status disponivel">DISPONÍVEL</div>
-            <div class="img-produto" style="background-image: url('https://i.imgur.com/5T4S3bA.jpeg')"></div>
-            <div class="conteudo-card">
-                <h3 class="nome-produto">✨🍏🍎🔷 4-6 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX</h3>
-                <p class="preco-antigo">R$ 65,00</p>
-                <p class="preco-novo">R$ 27.09</p>
-                <p class="texto-pix">À vista no PIX</p>
-                <div class="botoes">
-                    <button class="btn-comprar" onclick="abrirCarrinho(3)">Comprar</button>
-                    <button class="btn-carrinho" onclick="abrirCarrinho(3)">🛍️</button>
-                </div>
-                <p class="texto-estoque estoque-disponivel">Estoque: Disponível</p>
-            </div>
-        </div>
-
-        <div class="card" data-id="4" data-nome="🍇🚨 7+ FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX" data-preco="38.90" data-estoque="0">
-            <div class="status esgotado">ESGOTADO</div>
-            <div class="img-produto" style="background-image: url('https://i.imgur.com/3R2Q1cA.jpeg')"></div>
-            <div class="conteudo-card">
-                <h3 class="nome-produto">🍇🚨 7+ FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX</h3>
-                <p class="preco-antigo">R$ 129,90</p>
-                <p class="preco-novo">R$ 38.90</p>
-                <p class="texto-pix">À vista no PIX</p>
-                <div class="botoes">
-                    <button class="btn-comprar" onclick="abrirCarrinho(4)">Comprar</button>
-                    <button class="btn-carrinho" onclick="abrirCarrinho(4)">🛍️</button>
-                </div>
-                <p class="texto-estoque estoque-vazio">Estoque: Vazio</p>
-            </div>
-        </div>
-
-        <div class="card" data-id="5" data-nome="✨🍓 FRUTA MÍTICA INVENTÁRIO + LEVEL MÁXIMO + GODHUMAN" data-preco="8.79" data-estoque="0">
-            <div class="status esgotado">ESGOTADO</div>
-            <div class="img-produto" style="background-image: url('https://i.imgur.com/9X8Z7yB.jpeg')"></div>
-            <div class="conteudo-card">
-                <h3 class="nome-produto">✨🍓 FRUTA MÍTICA INVENTÁRIO + LEVEL MÁXIMO + GODHUMAN</h3>
-                <p class="preco-antigo">R$ 19,99</p>
-                <p class="preco-novo">R$ 8.79</p>
-                <p class="texto-pix">À vista no PIX</p>
-                <div class="botoes">
-                    <button class="btn-comprar" onclick="abrirCarrinho(5)">Comprar</button>
-                    <button class="btn-carrinho" onclick="abrirCarrinho(5)">🛍️</button>
-                </div>
-                <p class="texto-estoque estoque-vazio">Estoque: Vazio</p>
-            </div>
-        </div>
-
-        <div class="card" data-id="6" data-nome="🔥「👊」CONTAS DE BLOX FRUITS LEVEL MAX + GODHUMAN + FRUTAS" data-preco="5.94" data-estoque="0">
-            <div class="status esgotado">ESGOTADO</div>
-            <div class="img-produto" style="background-image: url('https://i.imgur.com/8Z7X6wC.jpeg')"></div>
-            <div class="conteudo-card">
-                <h3 class="nome-produto">🔥「👊」CONTAS DE BLOX FRUITS LEVEL MAX + GODHUMAN + FRUTAS</h3>
-                <p class="preco-antigo">R$ 16,00</p>
-                <p class="preco-novo">R$ 5.94</p>
-                <p class="texto-pix">À vista no PIX</p>
-                <div class="botoes">
-                    <button class="btn-comprar" onclick="abrirCarrinho(6)">Comprar</button>
-                    <button class="btn-carrinho" onclick="abrirCarrinho(6)">🛍️</button>
-                </div>
-                <p class="texto-estoque estoque-vazio">Estoque: Vazio</p>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="pagina-carrinho" id="paginaCarrinho">
-        <div class="cabecalho-carrinho">
-            <h2>🛒 CARRINHO</h2>
-            <button class="fechar" onclick="fecharCarrinho()">×</button>
-        </div>
-        <div class="conteudo-carrinho">
-            <div class="item">
-                <img id="imgCarrinho" class="img-item" src="" alt="">
-                <div class="info-item">
-                    <div class="nome-item" id="nomeCarrinho"></div>
-                    <div class="preco-item" id="precoCarrinho"></div>
-                    <div class="qtd">
-                        <button onclick="alterarQtd(-1)">-</button>
-                        <span id="quantidade">1</span>
-                        <button onclick="alterarQtd(1)">+</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="resumo">
-                <h3>Valor Total</h3>
-                <div class="valor-total" id="valorTotal">R$ 0,00</div>
-                <div class="cupom">
-                    <input type="text" placeholder="Cupom de desconto">
-                    <button class="btn-cupom">Aplicar</button>
-                </div>
-                <div class="aviso" id="avisoEstoque">❌ ESTE PRODUTO ESTÁ SEM ESTOQUE NO MOMENTO!</div>
-                <button class="btn-finalizar" onclick="finalizarCompra()">FINALIZAR COMPRA</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="pagina-pix" id="paginaPix">
-        <div class="caixa-pix">
-            <h3>Pagamento via PIX</h3>
-            <div class="qr-code">QR CODE AQUI</div>
-            <div class="codigo-pix" id="codigoPix">00020126360014br.gov.bcb.pix0114+55719999999990212LOJA TOP BLOX52040000530398654041.005802BR5915LOJA BLOX<
+<html lang="pt-BR">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Top Bloxx | Comprar Contas De Blox Fruits</title>  
+    <script src="https://cdn.tailwindcss.com"></script>  
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">  
+    <script>  
+        tailwind.config = {  
+            theme: {  
+                extend: {  
+                    colors: {  
+                        principal: '#6D28D9',  
+                        escuro: '#121214',  
+                        card: '#1E1E20',  
+                        verde: '#10B981',  
+                        vermelho: '#EF4444',  
+                        amarelo: '#F59E0B',  
+                        azulclaro: '#0EA5E9'  
+                    },  
+                    fontFamily: {  
+                        sans: ['Inter', 'sans-serif'],  
+                    },  
+                }  
+            }  
+        }  
+    </script>  
+    <style type="text/tailwindcss">  
+        @layer utilities {  
+            .conteudo {  
+                max-width: 1200px;  
+                margin: 0 auto;  
+                padding: 0 1rem;  
+            }  
+            .rolagem {  
+                scrollbar-width: thin;  
+                scrollbar-color: #6D28D9 #1E1E20;  
+            }  
+            .rolagem::-webkit-scrollbar {  
+                width: 6px;  
+                height: 6px;  
+            }  
+            .rolagem::-webkit-scrollbar-track {  
+                background: #1E1E20;  
+            }  
+            .rolagem::-webkit-scrollbar-thumb {  
+                background-color: #6D28D9;  
+                border-radius: 20px;  
+            }  
+        }  
+    </style>  
+</head>  
+<body class="bg-escuro text-white min-h-screen flex flex-col">  
+
+<!-- PÁGINA PRINCIPAL -->
+<div id="paginaPrincipal" class="block">  
+    <!-- Cabeçalho -->  
+    <header class="bg-card/80 backdrop-blur-sm sticky top-0 z-50 border-b border-principal/20">  
+        <div class="conteudo py-3 flex items-center justify-between">  
+            <div class="flex items-center gap-3">  
+                <button class="bg-principal/20 hover:bg-principal/40 transition px-3 py-1 rounded-lg text-sm flex items-center gap-1 cursor-pointer" onclick="voltarPagina()">  
+                    <i class="fa fa-arrow-left"></i> Voltar  
+                </button>  
+                <img src="https://i.imgur.com/8Z7X7yY.jpeg" alt="Logo" class="w-12 h-12 rounded-lg">  
+                <div>  
+                    <h1 class="font-bold text-lg">The Blox | Comprar</h1>  
+                    <p class="text-sm text-gray-400">Contas De Blox Fruits</p>  
+                </div>  
+            </div>  
+
+            <div class="hidden md:flex items-center gap-4">  
+                <div class="relative">  
+                    <input type="text" id="pesquisar" placeholder="Pesquisar contas..." class="bg-escuro border border-gray-700 rounded-full py-2 px-4 pl-10 w-64 focus:outline-none focus:border-principal transition">  
+                    <i class="fa fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>  
+                </div>  
+                <button class="text-white hover:text-principal transition cursor-pointer"><i class="fa fa-headphones text-xl"></i></button>  
+                <button class="text-white hover:text-principal transition relative cursor-pointer" onclick="abrirCarrinhoPagina()">  
+                    <i class="fa fa-shopping-bag text-xl"></i>  
+                    <span id="badgeCarrinho" class="absolute -top-2 -right-2 bg-vermelho text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>  
+                </button>  
+                <button class="bg-principal hover:bg-principal/80 transition px-4 py-2 rounded-lg font-medium cursor-pointer">Entrar</button>  
+            </div>  
+
+            <div class="flex md:hidden items-center gap-3">  
+                <button class="text-white hover:text-principal transition cursor-pointer"><i class="fa fa-search text-lg"></i></button>  
+                <button class="text-white hover:text-principal transition cursor-pointer"><i class="fa fa-headphones text-lg"></i></button>  
+                <button class="text-white hover:text-principal transition relative cursor-pointer" onclick="abrirCarrinhoPagina()">  
+                    <i class="fa fa-shopping-bag text-lg"></i>  
+                    <span id="badgeCarrinhoMobile" class="absolute -top-2 -right-2 bg-vermelho text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>  
+                </button>  
+                <button class="bg-principal hover:bg-principal/80 transition px-3 py-1 rounded-lg font-medium text-sm cursor-pointer">Entrar</button>  
+            </div>  
+        </div>  
+    </header>  
+
+    <!-- Conteúdo Principal -->  
+    <main class="flex-1 conteudo py-6">  
+        <h2 class="text-xl font-bold mb-6 flex items-center gap-2">  
+            <i class="fa fa-gem text-principal"></i> Contas CUSTO-BENEFÍCIO | CONTAS DE BLOX FRUITS  
+        </h2>  
+
+        <div class="grid grid-cols-2 gap-3 md:gap-4">  
+
+            <!-- Produto 1 -->  
+            <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group">  
+                <div class="relative overflow-hidden">  
+                    <img src="https://i.imgur.com/7X6W5vB.jpeg" alt="Produto" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">  
+                    <span class="absolute top-2 left-2 bg-vermelho text-white text-xs font-bold px-2 py-1 rounded">ESGOTADO</span>  
+                </div>  
+                <div class="p-3">  
+                    <h3 class="font-medium text-xs mb-2 line-clamp-2 h-8">✨🍎 2 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX</h3>  
+                    <div class="mb-2">  
+                        <span class="text-gray-400 line-through text-[10px]">R$ 29,00</span>  
+                        <div class="flex items-center gap-1">  
+                            <span class="font-bold text-sm">R$ 11,99</span>  
+                            <span class="text-verde text-[10px] font-medium">À vista no PIX</span>  
+                        </div>  
+                    </div>  
+                    <div class="flex items-center gap-2">  
+                        <button onclick="adicionarAoCarrinho('✨🍎 2 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '11,99', 'https://i.imgur.com/7X6W5vB.jpeg', 0)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">  
+                            Comprar  
+                        </button>  
+                        <button onclick="adicionarAoCarrinho('✨🍎 2 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '11,99', 'https://i.imgur.com/7X6W5vB.jpeg', 0)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">  
+                            <i class="fa fa-shopping-bag text-sm"></i>  
+                        </button>  
+                    </div>  
+                    <div class="estoque text-[10px] text-vermelho mt-1 font-medium">Estoque: Vazio</div>  
+                </div>  
+            </div>  
+
+            <!-- Produto 2 -->  
+            <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group">  
+                <div class="relative overflow-hidden">  
+                    <img src="https://i.imgur.com/6V5U4aB.jpeg" alt="Produto" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">  
+                    <span class="absolute top-2 left-2 bg-vermelho text-white text-xs font-bold px-2 py-1 rounded">ESGOTADO</span>  
+                </div>  
+                <div class="p-3">  
+                    <h3 class="font-medium text-xs mb-2 line-clamp-2 h-8">🔥🍓 3-7 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX</h3>  
+                    <div class="mb-2">  
+                        <span class="text-gray-400 line-through text-[10px]">R$ 40,00</span>  
+                        <div class="flex items-center gap-1">  
+                            <span class="font-bold text-sm">R$ 16,63</span>  
+                            <span class="text-verde text-[10px] font-medium">À vista no PIX</span>  
+                        </div>  
+                    </div>  
+                    <div class="flex items-center gap-2">  
+                        <button onclick="adicionarAoCarrinho('🔥🍓 3-7 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '16,63', 'https://i.imgur.com/6V5U4aB.jpeg', 0)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">  
+                            Comprar  
+                        </button>  
+                        <button onclick="adicionarAoCarrinho('🔥🍓 3-7 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '16,63', 'https://i.imgur.com/6V5U4aB.jpeg', 0)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">  
+                            <i class="fa fa-shopping-bag text-sm"></i>  
+                        </button>  
+                    </div>  
+                    <div class="estoque text-[10px] text-vermelho mt-1 font-medium">Estoque: Vazio</div>  
+                </div>  
+            </div>  
+
+            <!-- Produto 3 - COM ESTOQUE -->  
+            <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group">  
+                <div class="relative overflow-hidden">  
+                    <img src="https://i.imgur.com/5T4S3zB.jpeg" alt="Produto" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">  
+                    <span class="absolute top-2 left-2 bg-verde text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</span>  
+                </div>  
+                <div class="p-3">  
+                    <h3 class="font-medium text-xs mb-2 line-clamp-2 h-8">✨🍏🍎🔷 4-6 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX</h3>  
+                    <div class="mb-2">  
+                        <span class="text-gray-400 line-through text-[10px]">R$ 65,00</span>  
+                        <div class="flex items-center gap-1">  
+                            <span class="font-bold text-sm">R$ 27,09</span>  
+                            <span class="text-verde text-[10px] font-medium">À vista no PIX</span>  
+                        </div>  
+                    </div>  
+                    <div class="flex items-center gap-2">  
+                        <button onclick="adicionarAoCarrinho('✨🍏🍎🔷 4-6 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '27,09', 'https://i.imgur.com/5T4S3zB.jpeg', 5)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">  
+                            Comprar  
+                        </button>  
+                        <button onclick="adicionarAoCarrinho('✨🍏🍎🔷 4-6 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '27,09', 'https://i.imgur.com/5T4S3zB.jpeg', 5)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">  
+                            <i class="fa fa-shopping-bag text-sm"></i>  
+                        </button>  
+                    </div>  
+                    <div class="estoque text-[10px] text-verde mt-1 font-medium">Estoque: Disponível</div>  
+                </div>  
+            </div>  
+
+            <!-- Produto 4 -->  
+            <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group">  
+                <div class="relative overflow-hidden">  
+                    <img src="https://i.imgur.com/3R2Q1xW.jpeg" alt="Produto" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">  
+                    <span class="absolute top-2 left-2 bg-vermelho text-white text-xs font-bold px-2 py-1 rounded">ESGOTADO</span>  
+                </div>  
+                <div class="p-3">  
+                    <h3 class="font-medium text-xs mb-2 line-clamp-2 h-8">🍇🚨 7+ FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX</h3>  
+                    <div class="mb-2">  
+                        <span class="text-gray-400 line-through text-[10px]">R$ 129,90</span>  
+                        <div class="flex items-center gap-1">  
+                            <span class="font-bold text-sm">R$ 38,90</span>  
+                            <span class="text-verde text-[10px] font-medium">À vista no PIX</span>  
+                        </div>  
+                    </div>  
+                    <div class="flex items-center gap-2">  
+                        <button onclick="adicionarAoCarrinho('🍇🚨 7+ FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '38,90', 'https://i.imgur.com/3R2Q1xW.jpeg', 0)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">  
+                            Comprar  
+                        </button>  
+                        <button onclick="adicionarAoCarrinho('🍇🚨 7+ FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '38,90', 'https://i.imgur.com/3R2Q1xW.jpeg', 0)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">  
+                            <i class="fa fa-shopping-bag text-sm"></i>  
+                        </button>  
+                    </div>  
+                    <div class="estoque text-[10px] text-vermelho mt-1 font-medium">Estoque: Vazio</div>  
+                </div>  
+            </div>  
+
+            <!-- Produto 5 -->  
+            <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group">  
+                <div class="relative overflow-hidden">  
+                    <img src="https://i.imgur.com/9X8Z7Lb.jpeg" alt="Produto" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">  
+                    <span class="absolute top-2 left-2 bg-vermelho text-white text-xs font-bold px-2 py-1 rounded">ESGOTADO</span>  
+                </div>  
+                <div class="p-3">  
+                    <h3 class="font-medium text-xs mb-2 line-clamp-2 h-8">✨🍓 FRUTA MÍTICA INVENTÁRIO + LEVEL MÁXIMO + GODHUMAN</h3>  
+                    <div class="mb-2">  
+                        <span class="text-gray-400 line-through text-[10px]">R$ 19,99</span>  
+                        <div class="flex items-center gap-1">  
+                            <span class="font-bold text-sm">R$ 8,79</span>  
+                            <span class="text-verde text-[10px] font-medium">À vista no PIX</span>  
+                        </div>  
+                    </div>  
+                    <div class="flex items-center gap-2">  
+                        <button onclick="adicionarAoCarrinho('✨🍓 FRUTA MÍTICA INVENTÁRIO + LEVEL MÁXIMO + GODHUMAN', '8,79', 'https://i.imgur.com/9X8Z7Lb.jpeg', 0)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">  
+                            Comprar  
+                        </button>  
+                        <button onclick="adicionarAoCarrinho('✨🍓 FRUTA MÍTICA INVENTÁRIO + LEVEL MÁXIMO + GODHUMAN', '8,79', 'https://i.imgur.com/9X8Z7Lb.jpeg', 0)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">  
+                            <i class="fa fa-shopping-bag text-sm"></i>  
+                        </button>  
+                    </div>  
+                    <div class="estoque text-[10px] text-vermelho mt-1 font-medium">Estoque: Vazio</div>  
+                </div>  
+            </div>  
+
+            <!-- Produto 6 -->  
+            <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group">  
+                <div class="relative overflow-hidden">  
+                    <img src="https://i.imgur.com/8Z7X7yY.jpeg" alt="Produto" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">  
+                    <span class="absolute top-2 left-2 bg-vermelho text-white text-xs font-bold px-2 py-1 rounded">ESGOTADO</span>  
+                </div>  
+                <div class="p-3">  
+                    <h3 class="font-medium text-xs mb-2 line-clamp-2 h-8">🔥「👊」CONTAS DE BLOX FRUITS LEVEL MAX + GODHUMAN + FRUTAS</h3>  
+                    <div class="mb-2">  
+                        <span class="text-gray-400 line-through text-[10px]">R$ 16,00</span>  
+                        <div class="flex items-center gap-1">  
+                            <span class="font-bold text-sm">R$ 5,94</span>  
+                            <span class="text-verde text-[10px] font-medium">À vista no PIX</span>  
+                        </div>  
+                    </div>  
+                    <div class="flex items-center gap-2">  
+                        <button onclick="adicionarAoCarrinho('🔥「👊」CONTAS DE BLOX FRUITS LEVEL MAX + GODHUMAN + FRUTAS', '5,94', 'https://i.imgur.com/8Z7X7yY.jpeg', 0)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">  
+                            Comprar  
+                        </button>  
+                        <button onclick="adicionarAoCarrinho('🔥「👊」CONTAS DE BLOX FRUITS LEVEL MAX + GODHUMAN + FRUTAS', '5,94', 'https://i.imgur.com/8Z7X7yY.jpeg', 0)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">  
+                            <i class="fa fa-shopping-bag text-sm"></i>  
+                        </button>  
+                    </div>  
+                    <div class="estoque text-[10px] text-vermelho mt-1 font-medium">Estoque: Vazio</div>  
+                </div>  
+            </div>  
+
+            <!-- Produto 7 -->  
+            <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group">  
+                <div class="relative overflow-hidden">  
+                    <img src="https://i.imgur.com/draco-contav4.png" alt="Conta V4 DRACO" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">  
+                    <span class="absolute top-2 left-2 bg-vermelho text-white text-xs font-bold px-2 py-1 rounded">ESGOTADO</span>  
+                </div>  
+                <div class="p-3">  
+                    <h3 class="font-medium text-xs mb-2 line-clamp-2 h-8">⚡ Conta V4 DRACO</h3>  
+                    <div class="mb-2">  
+                        <div class="flex items-center gap-1">  
+                            <span class="font-bold text-sm">R$ 45,00</span>  
+                            <span class="text-verde text-[10px] font-medium">À vista no PIX</span>  
+                        </div>  
+                    </div>  
+                    <div class="flex items-center gap-2">  
+                        <button onclick="adicionarAoCarrinho('⚡ Conta V4 DRACO', '45,00', 'https://i.imgur.com/draco-contav4.png', 0)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">  
+                            Comprar  
+                        </button>  
+                        <button onclick="adicionarAoCarrinho('⚡ Conta V4 DRACO', '45,00', 'https://i.imgur.com/draco-contav4.png', 0)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">  
+                            <i class="fa fa-shopping-bag text-sm"></i>  
+                        </button>  
+                    </div>  
+      
