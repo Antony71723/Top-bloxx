@@ -13,8 +13,8 @@
                     colors: {
                         roxo: '#9D4EDD',
                         verde: '#28C76F',
-                        vermelho: '#EA5455',
-                        preto: '#000000',
+                        vermelho: '#EA4335',
+                        cinza_claro: '#F5F5F5',
                     },
                     fontFamily: {
                         sans: ['Arial', 'sans-serif'],
@@ -26,81 +26,91 @@
     <style type="text/tailwindcss">
         @layer utilities {
             .conteudo {
-                max-width: 400px;
-                margin: 3rem auto;
-                padding: 0 1rem;
+                max-width: 500px;
+                margin: 0 auto;
+                padding: 2rem 1.5rem;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .botao-copiar {
+                background-color: #9D4EDD;
+            }
+            .botao-fechar {
+                background-color: #EA4335;
             }
         }
     </style>
 </head>
-<body class="bg-preto text-white font-sans min-h-screen flex items-center">
+<!-- FUNDO BRANCO TOTAL, COBRE TUDO -->
+<body class="bg-white text-black font-sans m-0 p-0">
 
-<main class="conteudo w-full">
-    <div class="bg-white text-black rounded-xl p-5 text-center shadow-2xl">
-        <h2 class="text-roxo text-2xl font-bold mb-4">💳 PAGAMENTO VIA PIX</h2>
+<div class="conteudo w-full">
+    <div class="w-full rounded-2xl shadow-xl p-6 text-center">
         
-        <p class="text-lg font-medium mb-2">Valor a pagar:</p>
-        <p id="valorPagamento" class="text-verde text-2xl font-bold mb-6">R$ 0,00</p>
+        <!-- TÍTULO IGUAL DA FOTO -->
+        <h2 class="text-roxo text-3xl font-bold mb-6 flex items-center justify-center gap-2">
+            <i class="fa fa-credit-card"></i> PAGAMENTO VIA PIX
+        </h2>
 
-        <!-- ESPAÇO PARA O QR CODE -->
-        <div class="w-48 h-48 mx-auto border-2 border-roxo rounded-lg mb-4 flex items-center justify-center bg-gray-100">
-            <span class="text-gray-500 text-sm">QR CODE AQUI</span>
+        <!-- VALOR -->
+        <p class="text-xl font-medium mb-2">Valor a pagar:</p>
+        <p id="valorPagamento" class="text-verde text-4xl font-bold mb-8">R$ 0,00</p>
+
+        <!-- ÁREA DO QR CODE COM BORDA ROXA BONITA -->
+        <div class="w-full max-w-xs h-72 mx-auto border-2 border-roxo rounded-lg mb-6 flex items-center justify-center bg-cinza_claro">
+            <span class="text-gray-400 text-xl font-medium">QR CODE AQUI</span>
+            <!-- COLOQUE SUA IMAGEM ASSIM: <img src="seu_qr.png" class="w-full h-full rounded"> -->
         </div>
 
-        <!-- CÓDIGO PIX CÓPIA E COLA -->
-        <div class="bg-gray-100 p-3 rounded text-sm mb-4 break-all font-mono" id="codigoPix">
+        <!-- CÓDIGO PIX -->
+        <div class="bg-cinza_claro p-4 rounded-lg text-base mb-6 break-all text-left">
             00020126580014br.gov.bcb.pix0136chavepixexemplo12345678901234567890
         </div>
 
-        <!-- BOTÕES -->
-        <div class="flex gap-3 justify-center">
-            <button onclick="copiarCodigo()" class="bg-roxo text-white px-5 py-2 rounded-lg font-medium hover:opacity-90 transition">
-                📋 Copiar Código
+        <!-- BOTÕES IGUAIS DA FOTO -->
+        <div class="grid grid-cols-2 gap-4 mb-6">
+            <button onclick="copiarCodigo()" class="botao-copiar text-white py-4 rounded-lg text-lg font-medium flex items-center justify-center gap-2 hover:opacity-90 transition">
+                <i class="fa fa-clipboard"></i> Copiar Código
             </button>
-            <button onclick="cancelarCompra()" class="bg-vermelho text-white px-5 py-2 rounded-lg font-medium hover:opacity-90 transition">
-                ❌ Fechar / Cancelar
+            <button onclick="fecharPagina()" class="botao-fechar text-white py-4 rounded-lg text-lg font-medium flex items-center justify-center gap-2 hover:opacity-90 transition">
+                <i class="fa fa-times"></i> Fechar / Cancelar
             </button>
         </div>
 
-        <p class="text-xs text-gray-600 mt-5">
-            Após pagar, envie o comprovante para receber sua conta ✅
+        <!-- TEXTO FINAL -->
+        <p class="text-sm text-gray-600 flex items-center justify-center gap-2">
+            Após pagar, envie o comprovante para receber sua conta <i class="fa fa-check-square-o text-verde"></i>
         </p>
+
     </div>
-</main>
+</div>
 
 <script>
-// PEGA OS DADOS CORRETOS DO CARRINHO
+// PEGA OS DADOS DO CARRINHO
 const produto = JSON.parse(localStorage.getItem('produtoCarrinho') || 'null');
 const quantidade = localStorage.getItem('quantidadeComprada') || 1;
 
 window.addEventListener('DOMContentLoaded', () => {
     if (!produto) {
-        document.querySelector('main').innerHTML = '<p class="text-center text-red-500">Erro ao carregar dados do pagamento</p>';
+        document.querySelector('.conteudo').innerHTML = '<p class="text-red-500 text-lg">Erro ao carregar os dados</p>';
         return;
     }
-
-    // MOSTRA O VALOR TOTAL CERTO (PREÇO X QUANTIDADE)
+    // CALCULA E MOSTRA O VALOR CERTO
     const total = produto.preco * quantidade;
     document.getElementById('valorPagamento').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
 });
 
-// FUNÇÃO PARA COPIAR O CÓDIGO PIX
+// COPIA SEM MENSAGEM NENHUMA
 function copiarCodigo() {
-    const codigo = document.getElementById('codigoPix').textContent;
-    navigator.clipboard.writeText(codigo)
-        .then(() => {
-            alert('✅ Código PIX copiado com sucesso! Agora é só colar no seu banco.');
-        })
-        .catch(() => {
-            alert('❌ Erro ao copiar. Selecione o texto e copie manualmente.');
-        });
+    const codigo = document.querySelector('.bg-cinza_claro').textContent.trim();
+    navigator.clipboard.writeText(codigo);
 }
 
-// FUNÇÃO PARA FECHAR E VOLTAR PRO CARRINHO
-function cancelarCompra() {
-    if (confirm('Tem certeza que deseja cancelar a compra?')) {
-        window.location.href = 'carrinho.html';
-    }
+// FECHA DIRETO SEM PERGUNTAR NADA
+function fecharPagina() {
+    window.location.href = 'carrinho.html';
 }
 </script>
 
