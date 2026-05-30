@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">  
 <head>  
     <meta charset="UTF-8">  
@@ -69,7 +68,7 @@
     <header class="bg-card/80 backdrop-blur-sm sticky top-0 z-50 border-b border-principal/20">  
         <div class="conteudo py-3 flex items-center justify-between">  
             <div class="flex items-center gap-3">  
-                <button class="bg-principal/20 hover:bg-principal/40 transition px-3 py-1 rounded-lg text-sm flex items-center gap-1 botao-clicavel" onclick="voltarPagina()">  
+                <button onclick="voltarPagina()" class="bg-principal/20 hover:bg-principal/40 transition px-3 py-1 rounded-lg text-sm flex items-center gap-1 botao-clicavel">  
                     <i class="fa fa-arrow-left"></i> Voltar  
                 </button>  
                 <img src="https://i.imgur.com/8Z7X7yY.jpeg" alt="Logo" class="w-12 h-12 rounded-lg">  
@@ -85,7 +84,7 @@
                     <i class="fa fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>  
                 </div>  
                 <button class="text-white hover:text-principal transition botao-clicavel"><i class="fa fa-headphones text-xl"></i></button>  
-                <button class="text-white hover:text-principal transition relative botao-clicavel" onclick="abrirCarrinhoPagina()">  
+                <button onclick="abrirCarrinhoPagina()" class="text-white hover:text-principal transition relative botao-clicavel">  
                     <i class="fa fa-shopping-bag text-xl"></i>  
                     <span id="contadorCarrinho" class="absolute -top-2 -right-2 bg-vermelho text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>  
                 </button>  
@@ -95,7 +94,7 @@
             <div class="flex md:hidden items-center gap-3">  
                 <button class="text-white hover:text-principal transition botao-clicavel"><i class="fa fa-search text-lg"></i></button>  
                 <button class="text-white hover:text-principal transition botao-clicavel"><i class="fa fa-headphones text-lg"></i></button>  
-                <button class="text-white hover:text-principal transition relative botao-clicavel" onclick="abrirCarrinhoPagina()">  
+                <button onclick="abrirCarrinhoPagina()" class="text-white hover:text-principal transition relative botao-clicavel">  
                     <i class="fa fa-shopping-bag text-lg"></i>  
                     <span id="contadorCarrinhoCelular" class="absolute -top-2 -right-2 bg-vermelho text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>  
                 </button>  
@@ -112,7 +111,7 @@
 
         <div class="grid grid-cols-2 gap-3 md:gap-4">  
 
-            <!-- Produto 1 - ESGOTADO -->  
+            <!-- Produto 1 -->  
             <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group">  
                 <div class="relative overflow-hidden">  
                     <img src="https://i.imgur.com/7X6W5vB.jpeg" alt="Produto" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">  
@@ -128,10 +127,10 @@
                         </div>  
                     </div>  
                     <div class="flex items-center gap-2">  
-                        <button onclick="irParaCarrinho('✨🍎 2 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '11,99', 0, 'https://i.imgur.com/7X6W5vB.jpeg')" class="btn-comprar flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs botao-clicavel">  
+                        <button onclick="irParaCarrinho('✨🍎 2 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '11,99', 0)" class="btn-comprar flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs botao-clicavel">  
                             Comprar  
                         </button>  
-                        <button onclick="irParaCarrinho('✨🍎 2 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '11,99', 0, 'https://i.imgur.com/7X6W5vB.jpeg')" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition botao-clicavel">  
+                        <button onclick="irParaCarrinho('✨🍎 2 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '11,99', 0)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition botao-clicavel">  
                             <i class="fa fa-shopping-bag text-sm"></i>  
                         </button>  
                     </div>  
@@ -139,7 +138,7 @@
                 </div>  
             </div>  
 
-            <!-- Produto 2 - ESGOTADO -->  
+            <!-- Produto 2 -->  
             <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group">  
                 <div class="relative overflow-hidden">  
                     <img src="https://i.imgur.com/6V5U4aB.jpeg" alt="Produto" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">  
@@ -155,10 +154,10 @@
                         </div>  
                     </div>  
                     <div class="flex items-center gap-2">  
-                        <button onclick="irParaCarrinho('🔥🍓 3-7 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '16,63', 0, 'https://i.imgur.com/6V5U4aB.jpeg')" class="btn-comprar flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs botao-clicavel">  
+                        <button onclick="irParaCarrinho('🔥🍓 3-7 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '16,63', 0)" class="btn-comprar flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs botao-clicavel">  
                             Comprar  
                         </button>  
-                        <button onclick="irParaCarrinho('🔥🍓 3-7 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '16,63', 0, 'https://i.imgur.com/6V5U4aB.jpeg')" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition botao-clicavel">  
+                        <button onclick="irParaCarrinho('🔥🍓 3-7 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '16,63', 0)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition botao-clicavel">  
                             <i class="fa fa-shopping-bag text-sm"></i>  
                         </button>  
                     </div>  
@@ -166,7 +165,7 @@
                 </div>  
             </div>  
 
-            <!-- Produto 3 - COM ESTOQUE -->  
+            <!-- Produto 3 - COM ESTOQUE PRA TESTAR -->  
             <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group">  
                 <div class="relative overflow-hidden">  
                     <img src="https://i.imgur.com/5T4S3zB.jpeg" alt="Produto" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">  
@@ -183,10 +182,10 @@
                         </div>  
                     </div>  
                     <div class="flex items-center gap-2">  
-                        <button onclick="irParaCarrinho('✨🍏🍎🔷 4-6 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '27,09', 1, 'https://i.imgur.com/5T4S3zB.jpeg')" class="btn-comprar flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs botao-clicavel">  
+                        <button onclick="irParaCarrinho('✨🍏🍎🔷 4-6 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '27,09', 1)" class="btn-comprar flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs botao-clicavel">  
                             Comprar  
                         </button>  
-                        <button onclick="irParaCarrinho('✨🍏🍎🔷 4-6 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '27,09', 1, 'https://i.imgur.com/5T4S3zB.jpeg')" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition botao-clicavel">  
+                        <button onclick="irParaCarrinho('✨🍏🍎🔷 4-6 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '27,09', 1)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition botao-clicavel">  
                             <i class="fa fa-shopping-bag text-sm"></i>  
                         </button>  
                     </div>  
@@ -194,7 +193,7 @@
                 </div>  
             </div>  
 
-            <!-- Produto 4 - ESGOTADO -->  
+            <!-- Produto 4 -->  
             <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group">  
                 <div class="relative overflow-hidden">  
                     <img src="https://i.imgur.com/3R2Q1xW.jpeg" alt="Produto" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">  
@@ -210,10 +209,10 @@
                         </div>  
                     </div>  
                     <div class="flex items-center gap-2">  
-                        <button onclick="irParaCarrinho('🍇🚨 7+ FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '38,90', 0, 'https://i.imgur.com/3R2Q1xW.jpeg')" class="btn-comprar flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs botao-clicavel">  
+                        <button onclick="irParaCarrinho('🍇🚨 7+ FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '38,90', 0)" class="btn-comprar flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs botao-clicavel">  
                             Comprar  
                         </button>  
-                        <button onclick="irParaCarrinho('🍇🚨 7+ FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '38,90', 0, 'https://i.imgur.com/3R2Q1xW.jpeg')" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition botao-clicavel">  
+                        <button onclick="irParaCarrinho('🍇🚨 7+ FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '38,90', 0)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition botao-clicavel">  
                             <i class="fa fa-shopping-bag text-sm"></i>  
                         </button>  
                     </div>  
@@ -221,7 +220,7 @@
                 </div>  
             </div>  
 
-            <!-- Produto 5 - ESGOTADO -->  
+            <!-- Produto 5 -->  
             <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group">  
                 <div class="relative overflow-hidden">  
                     <img src="https://i.imgur.com/9X8Z7Lb.jpeg" alt="Produto" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">  
@@ -237,10 +236,10 @@
                         </div>  
                     </div>  
                     <div class="flex items-center gap-2">  
-                        <button onclick="irParaCarrinho('✨🍓 FRUTA MÍTICA INVENTÁRIO + LEVEL MÁXIMO + GODHUMAN', '8,79', 0, 'https://i.imgur.com/9X8Z7Lb.jpeg')" class="btn-comprar flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs botao-clicavel">  
+                        <button onclick="irParaCarrinho('✨🍓 FRUTA MÍTICA INVENTÁRIO + LEVEL MÁXIMO + GODHUMAN', '8,79', 0)" class="btn-comprar flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs botao-clicavel">  
                             Comprar  
                         </button>  
-                        <button onclick="irParaCarrinho('✨🍓 FRUTA MÍTICA INVENTÁRIO + LEVEL MÁXIMO + GODHUMAN', '8,79', 0, 'https://i.imgur.com/9X8Z7Lb.jpeg')" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition botao-clicavel">  
+                        <button onclick="irParaCarrinho('✨🍓 FRUTA MÍTICA INVENTÁRIO + LEVEL MÁXIMO + GODHUMAN', '8,79', 0)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition botao-clicavel">  
                             <i class="fa fa-shopping-bag text-sm"></i>  
                         </button>  
                     </div>  
@@ -248,7 +247,7 @@
                 </div>  
             </div>  
 
-            <!-- Produto 6 - ESGOTADO -->  
+            <!-- Produto 6 -->  
             <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group">  
                 <div class="relative overflow-hidden">  
                     <img src="https://i.imgur.com/8Z7X7yY.jpeg" alt="Produto" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">  
@@ -264,10 +263,10 @@
                         </div>  
                     </div>  
                     <div class="flex items-center gap-2">  
-                        <button onclick="irParaCarrinho('🔥「👊」CONTAS DE BLOX FRUITS LEVEL MAX + GODHUMAN + FRUTAS', '5,94', 0, 'https://i.imgur.com/8Z7X7yY.jpeg')" class="btn-comprar flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs botao-clicavel">  
+                        <button onclick="irParaCarrinho('🔥「👊」CONTAS DE BLOX FRUITS LEVEL MAX + GODHUMAN + FRUTAS', '5,94', 0)" class="btn-comprar flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs botao-clicavel">  
                             Comprar  
                         </button>  
-                        <button onclick="irParaCarrinho('🔥「👊」CONTAS DE BLOX FRUITS LEVEL MAX + GODHUMAN + FRUTAS', '5,94', 0, 'https://i.imgur.com/8Z7X7yY.jpeg')" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition botao-clicavel">  
+                        <button onclick="irParaCarrinho('🔥「👊」CONTAS DE BLOX FRUITS LEVEL MAX + GODHUMAN + FRUTAS', '5,94', 0)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition botao-clicavel">  
                             <i class="fa fa-shopping-bag text-sm"></i>  
                         </button>  
                     </div>  
@@ -275,7 +274,7 @@
                 </div>  
             </div>  
 
-            <!-- Produto 7 - ESGOTADO -->  
+            <!-- Produto 7 - CONTA V4 DRACO -->  
             <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group">  
                 <div class="relative overflow-hidden">  
                     <img src="https://i.imgur.com/3kLpQ8b.png" alt="Conta V4 DRACO" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">  
@@ -290,4 +289,11 @@
                         </div>  
                     </div>  
                     <div class="flex items-center gap-2">  
-                        <button onclick="irParaCarrinho('⚡ Conta V4 DRACO', '45,00', 0, 'https://i.imgur.com/3kLpQ8b.png')" class="btn-comprar flex-1 bg-principal hover:bg-principal/80 transition py-
+                        <button onclick="irParaCarrinho('⚡ Conta V4 DRACO', '45,00', 0)" class="btn-comprar flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs botao-clicavel">  
+                            Comprar  
+                        </button>  
+                        <button onclick="irParaCarrinho('⚡ Conta V4 DRACO', '45,00', 0)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition botao-clicavel">  
+                            <i class="fa fa-shopping-bag text-sm"></i>  
+                        </button>  
+                    </div>  
+                    <d
