@@ -51,18 +51,16 @@
         }  
     </style>  
 </head>  
-<body class="bg-escuro text-white min-h-screen flex flex-col">  
-
-<!-- PÁGINA PRINCIPAL -->
+<body class="bg-escuro text-white min-h-screen flex flex-col">  <!-- PÁGINA PRINCIPAL -->  
 <div id="paginaPrincipal" class="block">  
     <!-- Cabeçalho -->  
     <header class="bg-card/80 backdrop-blur-sm sticky top-0 z-50 border-b border-principal/20">  
         <div class="conteudo py-3 flex items-center justify-between">  
             <div class="flex items-center gap-3">  
-                <button class="bg-principal/20 hover:bg-principal/40 transition px-3 py-1 rounded-lg text-sm flex items-center gap-1 cursor-pointer" onclick="voltarPagina()">  
+                <button onclick="voltarPagina()" class="bg-principal/20 hover:bg-principal/40 transition px-3 py-1 rounded-lg text-sm flex items-center gap-1 cursor-pointer">  
                     <i class="fa fa-arrow-left"></i> Voltar  
                 </button>  
-                <img src="https://i.imgur.com/8Z7X7yY.jpeg" alt="Logo" class="w-12 h-12 rounded-lg">  
+                <img src="top-blox.png" alt="Logo" class="w-12 h-12 rounded-lg">  
                 <div>  
                     <h1 class="font-bold text-lg">The Blox | Comprar</h1>  
                     <p class="text-sm text-gray-400">Contas De Blox Fruits</p>  
@@ -75,9 +73,9 @@
                     <i class="fa fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>  
                 </div>  
                 <button class="text-white hover:text-principal transition cursor-pointer"><i class="fa fa-headphones text-xl"></i></button>  
-                <button class="text-white hover:text-principal transition relative cursor-pointer" onclick="abrirCarrinhoPagina()">  
+                <button onclick="abrirCarrinhoPagina()" class="text-white hover:text-principal transition relative cursor-pointer">  
                     <i class="fa fa-shopping-bag text-xl"></i>  
-                    <span id="badgeCarrinho" class="absolute -top-2 -right-2 bg-vermelho text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>  
+                    <span id="contadorCarrinho" class="absolute -top-2 -right-2 bg-vermelho text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>  
                 </button>  
                 <button class="bg-principal hover:bg-principal/80 transition px-4 py-2 rounded-lg font-medium cursor-pointer">Entrar</button>  
             </div>  
@@ -85,9 +83,9 @@
             <div class="flex md:hidden items-center gap-3">  
                 <button class="text-white hover:text-principal transition cursor-pointer"><i class="fa fa-search text-lg"></i></button>  
                 <button class="text-white hover:text-principal transition cursor-pointer"><i class="fa fa-headphones text-lg"></i></button>  
-                <button class="text-white hover:text-principal transition relative cursor-pointer" onclick="abrirCarrinhoPagina()">  
+                <button onclick="abrirCarrinhoPagina()" class="text-white hover:text-principal transition relative cursor-pointer">  
                     <i class="fa fa-shopping-bag text-lg"></i>  
-                    <span id="badgeCarrinhoMobile" class="absolute -top-2 -right-2 bg-vermelho text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>  
+                    <span id="contadorCarrinhoMovel" class="absolute -top-2 -right-2 bg-vermelho text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>  
                 </button>  
                 <button class="bg-principal hover:bg-principal/80 transition px-3 py-1 rounded-lg font-medium text-sm cursor-pointer">Entrar</button>  
             </div>  
@@ -118,10 +116,10 @@
                         </div>  
                     </div>  
                     <div class="flex items-center gap-2">  
-                        <button onclick="adicionarAoCarrinho('✨🍎 2 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '11,99', 'https://i.imgur.com/7X6W5vB.jpeg', 0)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">  
+                        <button onclick="adicionarAoCarrinho('✨🍎 2 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', 11.99, 0, 'https://i.imgur.com/7X6W5vB.jpeg')" class="btn-comprar flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">  
                             Comprar  
                         </button>  
-                        <button onclick="adicionarAoCarrinho('✨🍎 2 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '11,99', 'https://i.imgur.com/7X6W5vB.jpeg', 0)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">  
+                        <button onclick="adicionarAoCarrinho('✨🍎 2 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', 11.99, 0, 'https://i.imgur.com/7X6W5vB.jpeg')" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">  
                             <i class="fa fa-shopping-bag text-sm"></i>  
                         </button>  
                     </div>  
@@ -145,10 +143,10 @@
                         </div>  
                     </div>  
                     <div class="flex items-center gap-2">  
-                        <button onclick="adicionarAoCarrinho('🔥🍓 3-7 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '16,63', 'https://i.imgur.com/6V5U4aB.jpeg', 0)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">  
+                        <button onclick="adicionarAoCarrinho('🔥🍓 3-7 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', 16.63, 0, 'https://i.imgur.com/6V5U4aB.jpeg')" class="btn-comprar flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">  
                             Comprar  
                         </button>  
-                        <button onclick="adicionarAoCarrinho('🔥🍓 3-7 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '16,63', 'https://i.imgur.com/6V5U4aB.jpeg', 0)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">  
+                        <button onclick="adicionarAoCarrinho('🔥🍓 3-7 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', 16.63, 0, 'https://i.imgur.com/6V5U4aB.jpeg')" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">  
                             <i class="fa fa-shopping-bag text-sm"></i>  
                         </button>  
                     </div>  
@@ -156,11 +154,12 @@
                 </div>  
             </div>  
 
-            <!-- Produto 3 - COM ESTOQUE -->  
+            <!-- Produto 3 - COM ESTOQUE PRA TESTAR -->  
             <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group">  
                 <div class="relative overflow-hidden">  
                     <img src="https://i.imgur.com/5T4S3zB.jpeg" alt="Produto" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">  
                     <span class="absolute top-2 left-2 bg-verde text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</span>  
+                    <span class="absolute bottom-2 left-2 text-lg">💰</span>  
                 </div>  
                 <div class="p-3">  
                     <h3 class="font-medium text-xs mb-2 line-clamp-2 h-8">✨🍏🍎🔷 4-6 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX</h3>  
@@ -172,10 +171,10 @@
                         </div>  
                     </div>  
                     <div class="flex items-center gap-2">  
-                        <button onclick="adicionarAoCarrinho('✨🍏🍎🔷 4-6 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '27,09', 'https://i.imgur.com/5T4S3zB.jpeg', 5)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">  
+                        <button onclick="adicionarAoCarrinho('✨🍏🍎🔷 4-6 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', 27.09, 5, 'https://i.imgur.com/5T4S3zB.jpeg')" class="btn-comprar flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">  
                             Comprar  
                         </button>  
-                        <button onclick="adicionarAoCarrinho('✨🍏🍎🔷 4-6 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '27,09', 'https://i.imgur.com/5T4S3zB.jpeg', 5)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">  
+                        <button onclick="adicionarAoCarrinho('✨🍏🍎🔷 4-6 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', 27.09, 5, 'https://i.imgur.com/5T4S3zB.jpeg')" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">  
                             <i class="fa fa-shopping-bag text-sm"></i>  
                         </button>  
                     </div>  
@@ -199,10 +198,10 @@
                         </div>  
                     </div>  
                     <div class="flex items-center gap-2">  
-                        <button onclick="adicionarAoCarrinho('🍇🚨 7+ FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '38,90', 'https://i.imgur.com/3R2Q1xW.jpeg', 0)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">  
+                        <button onclick="adicionarAoCarrinho('🍇🚨 7+ FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', 38.90, 0, 'https://i.imgur.com/3R2Q1xW.jpeg')" class="btn-comprar flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">  
                             Comprar  
                         </button>  
-                        <button onclick="adicionarAoCarrinho('🍇🚨 7+ FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', '38,90', 'https://i.imgur.com/3R2Q1xW.jpeg', 0)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">  
+                        <button onclick="adicionarAoCarrinho('🍇🚨 7+ FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', 38.90, 0, 'https://i.imgur.com/3R2Q1xW.jpeg')" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">  
                             <i class="fa fa-shopping-bag text-sm"></i>  
                         </button>  
                     </div>  
@@ -226,10 +225,10 @@
                         </div>  
                     </div>  
                     <div class="flex items-center gap-2">  
-                        <button onclick="adicionarAoCarrinho('✨🍓 FRUTA MÍTICA INVENTÁRIO + LEVEL MÁXIMO + GODHUMAN', '8,79', 'https://i.imgur.com/9X8Z7Lb.jpeg', 0)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">  
+                        <button onclick="adicionarAoCarrinho('✨🍓 FRUTA MÍTICA INVENTÁRIO + LEVEL MÁXIMO + GODHUMAN', 8.79, 0, 'https://i.imgur.com/9X8Z7Lb.jpeg')" class="btn-comprar flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">  
                             Comprar  
                         </button>  
-                        <button onclick="adicionarAoCarrinho('✨🍓 FRUTA MÍTICA INVENTÁRIO + LEVEL MÁXIMO + GODHUMAN', '8,79', 'https://i.imgur.com/9X8Z7Lb.jpeg', 0)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">  
+                        <button onclick="adicionarAoCarrinho('✨🍓 FRUTA MÍTICA INVENTÁRIO + LEVEL MÁXIMO + GODHUMAN', 8.79, 0, 'https://i.imgur.com/9X8Z7Lb.jpeg')" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">  
                             <i class="fa fa-shopping-bag text-sm"></i>  
                         </button>  
                     </div>  
@@ -241,7 +240,7 @@
             <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group">  
                 <div class="relative overflow-hidden">  
                     <img src="https://i.imgur.com/8Z7X7yY.jpeg" alt="Produto" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">  
-                    <span class="absolute top-2 left-2 bg-vermelho text-white text-xs font-bold px-2 py-1 rounded">ESGOTADO</span>  
+                    <Group class="absolute top-2 left-2 bg-vermelho text-white text-xs font-bold px-2 py-1 rounded">ESGOTADO</span>  
                 </div>  
                 <div class="p-3">  
                     <h3 class="font-medium text-xs mb-2 line-clamp-2 h-8">🔥「👊」CONTAS DE BLOX FRUITS LEVEL MAX + GODHUMAN + FRUTAS</h3>  
@@ -253,10 +252,10 @@
                         </div>  
                     </div>  
                     <div class="flex items-center gap-2">  
-                        <button onclick="adicionarAoCarrinho('🔥「👊」CONTAS DE BLOX FRUITS LEVEL MAX + GODHUMAN + FRUTAS', '5,94', 'https://i.imgur.com/8Z7X7yY.jpeg', 0)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">  
+                        <button onclick="adicionarAoCarrinho('🔥「👊」CONTAS DE BLOX FRUITS LEVEL MAX + GODHUMAN + FRUTAS', 5.94, 0, 'https://i.imgur.com/8Z7X7yY.jpeg')" class="btn-comprar flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">  
                             Comprar  
                         </button>  
-                        <button onclick="adicionarAoCarrinho('🔥「👊」CONTAS DE BLOX FRUITS LEVEL MAX + GODHUMAN + FRUTAS', '5,94', 'https://i.imgur.com/8Z7X7yY.jpeg', 0)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">  
+                        <button onclick="adicionarAoCarrinho('🔥「👊」CONTAS DE BLOX FRUITS LEVEL MAX + GODHUMAN + FRUTAS', 5.94, 0, 'https://i.imgur.com/8Z7X7yY.jpeg')" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">  
                             <i class="fa fa-shopping-bag text-sm"></i>  
                         </button>  
                     </div>  
@@ -264,10 +263,10 @@
                 </div>  
             </div>  
 
-            <!-- Produto 7 -->  
+            <!-- Produto 7 - CONTA V4 DRACO COM NOME DA IMAGEM CERTO -->  
             <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group">  
                 <div class="relative overflow-hidden">  
-                    <img src="https://i.imgur.com/draco-contav4.png" alt="Conta V4 DRACO" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">  
+                    <img src="draco-contav4.png" alt="Conta V4 DRACO" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">  
                     <span class="absolute top-2 left-2 bg-vermelho text-white text-xs font-bold px-2 py-1 rounded">ESGOTADO</span>  
                 </div>  
                 <div class="p-3">  
@@ -279,11 +278,8 @@
                         </div>  
                     </div>  
                     <div class="flex items-center gap-2">  
-                        <button onclick="adicionarAoCarrinho('⚡ Conta V4 DRACO', '45,00', 'https://i.imgur.com/draco-contav4.png', 0)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">  
+                        <button onclick="adicionarAoCarrinho('⚡ Conta V4 DRACO', 45.00, 0, 'draco-contav4.png')" class="btn-comprar flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">  
                             Comprar  
                         </button>  
-                        <button onclick="adicionarAoCarrinho('⚡ Conta V4 DRACO', '45,00', 'https://i.imgur.com/draco-contav4.png', 0)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">  
-                            <i class="fa fa-shopping-bag text-sm"></i>  
-                        </button>  
-                    </div>  
-      
+                        <button onclick="adicionarAoCarrinho('⚡ Conta V4 DRACO', 45.00, 0, 'draco-contav4.png')" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">  
+                            <i
