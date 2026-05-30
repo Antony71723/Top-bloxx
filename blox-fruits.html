@@ -72,7 +72,7 @@
                 <i class="fa fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
             </div>
             <button class="text-white hover:text-principal transition cursor-pointer text-xl"><i class="fa fa-headphones"></i></button>
-            <button onclick="abrirCarrinho()" class="text-white hover:text-principal transition relative cursor-pointer text-xl">
+            <button onclick="irParaCarrinho()" class="text-white hover:text-principal transition relative cursor-pointer text-xl">
                 <i class="fa fa-shopping-bag"></i>
                 <span id="qtdCarrinho" class="absolute -top-2 -right-2 bg-vermelho text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
             </button>
@@ -82,7 +82,7 @@
         <div class="flex md:hidden items-center gap-3">
             <button class="text-white hover:text-principal transition cursor-pointer text-lg"><i class="fa fa-search"></i></button>
             <button class="text-white hover:text-principal transition cursor-pointer text-lg"><i class="fa fa-headphones"></i></button>
-            <button onclick="abrirCarrinho()" class="text-white hover:text-principal transition relative cursor-pointer text-lg">
+            <button onclick="irParaCarrinho()" class="text-white hover:text-principal transition relative cursor-pointer text-lg">
                 <i class="fa fa-shopping-bag"></i>
                 <span id="qtdCarrinhoMovel" class="absolute -top-2 -right-2 bg-vermelho text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
             </button>
@@ -114,8 +114,8 @@
                     </div>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button onclick="adicionarAoCarrinho('✨🍎 2 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', 11.99, 0, 'https://i.imgur.com/7X6W5vB.jpeg')" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">Comprar</button>
-                    <button onclick="adicionarAoCarrinho('✨🍎 2 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', 11.99, 0, 'https://i.imgur.com/7X6W5vB.jpeg')" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">
+                    <button onclick="comprarProduto('✨🍎 2 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', 11.99, 0, 'https://i.imgur.com/7X6W5vB.jpeg')" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">Comprar</button>
+                    <button onclick="comprarProduto('✨🍎 2 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', 11.99, 0, 'https://i.imgur.com/7X6W5vB.jpeg')" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">
                         <i class="fa fa-shopping-bag text-sm"></i>
                     </button>
                 </div>
@@ -139,8 +139,8 @@
                     </div>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button onclick="adicionarAoCarrinho('🔥🍓 3-7 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', 16.63, 0, 'https://i.imgur.com/6V5U4aB.jpeg')" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">Comprar</button>
-                    <button onclick="adicionarAoCarrinho('🔥🍓 3-7 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', 16.63, 0, 'https://i.imgur.com/6V5U4aB.jpeg')" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">
+                    <button onclick="comprarProduto('🔥🍓 3-7 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', 16.63, 0, 'https://i.imgur.com/6V5U4aB.jpeg')" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">Comprar</button>
+                    <button onclick="comprarProduto('🔥🍓 3-7 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', 16.63, 0, 'https://i.imgur.com/6V5U4aB.jpeg')" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">
                         <i class="fa fa-shopping-bag text-sm"></i>
                     </button>
                 </div>
@@ -164,8 +164,8 @@
                     </div>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button onclick="adicionarAoCarrinho('✨🍏🍎🔷 4-6 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', 27.09, 5, 'https://i.imgur.com/5T4S3zB.jpeg')" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">Comprar</button>
-                    <button onclick="adicionarAoCarrinho('✨🍏🍎🔷 4-6 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', 27.09, 5, 'https://i.imgur.com/5T4S3zB.jpeg')" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">
+                    <button onclick="comprarProduto('✨🍏🍎🔷 4-6 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', 27.09, 5, 'https://i.imgur.com/5T4S3zB.jpeg')" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">Comprar</button>
+                    <button onclick="comprarProduto('✨🍏🍎🔷 4-6 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', 27.09, 5, 'https://i.imgur.com/5T4S3zB.jpeg')" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">
                         <i class="fa fa-shopping-bag text-sm"></i>
                     </button>
                 </div>
@@ -189,8 +189,32 @@
                     </div>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button onclick="adicionarAoCarrinho('🍇🚨 7+ FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', 38.90, 0, 'https://i.imgur.com/3R2Q1xW.jpeg')" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">Comprar</button>
-                    <button onclick="adicionarAoCarrinho('🍇🚨 7+ FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', 38.90, 0, 'https://i.imgur.com/3R2Q1xW.jpeg')" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">
+                    <button onclick="comprarProduto('🍇🚨 7+ FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', 38.90, 0, 'https://i.imgur.com/3R2Q1xW.jpeg')" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">Comprar</button>
+                    <button onclick="comprarProduto('🍇🚨 7+ FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX', 38.90, 0, 'https://i.imgur.com/3R2Q1xW.jpeg')" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">
+                        <i class="fa fa-shopping-bag text-sm"></i>
+                    </button>
+                </div>
+                <div class="text-[10px] text-vermelho mt-1 font-medium">Estoque: Vazio</div>
+            </div>
+        </div>
+
+        <!-- Produto 5 -->
+        <div class="produto bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group">
+            <div class="relative overflow-hidden">
+                <img src="draco-contav4.png" alt="Conta V4 DRACO" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">
+                <span class="absolute top-2 left-2 bg-vermelho text-white text-xs font-bold px-2 py-1 rounded">ESGOTADO</span>
+            </div>
+            <div class="p-3">
+                <h3 class="font-medium text-xs mb-2 line-clamp-2 h-8">⚡ Conta V4 DRACO</h3>
+                <div class="mb-2">
+                    <div class="flex items-center gap-1">
+                        <span class="font-bold text-sm">R$ 45,00</span>
+                        <span class="text-verde text-[10px] font-medium">À vista no PIX</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="comprarProduto('⚡ Conta V4 DRACO', 45.00, 0, 'draco-contav4.png')" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">Comprar</button>
+                    <button onclick="comprarProduto('⚡ Conta V4 DRACO', 45.00, 0, 'draco-contav4.png')" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">
                         <i class="fa fa-shopping-bag text-sm"></i>
                     </button>
                 </div>
@@ -200,167 +224,44 @@
     </div>
 </main>
 
-<!-- CARRINHO -->
-<div id="modalCarrinho" class="fixed inset-0 z-50 bg-black/80 hidden items-center justify-center p-4">
-    <div class="bg-card rounded-xl w-full max-w-md max-h-[90vh] flex flex-col">
-        <div class="p-4 border-b border-gray-700 flex items-center justify-between">
-            <h3 class="font-bold text-lg">🛒 Seu Carrinho</h3>
-            <button onclick="fecharCarrinho()" class="text-gray-400 hover:text-white text-xl"><i class="fa fa-times"></i></button>
-        </div>
-
-        <div id="listaItensCarrinho" class="flex-1 overflow-y-auto p-4 rolagem">
-            <p class="text-gray-400 text-center py-6">Carrinho vazio</p>
-        </div>
-
-        <div id="rodapeCarrinho" class="border-t border-gray-700 p-4 hidden">
-            <div class="flex items-center justify-between mb-3">
-                <span class="font-medium">Total:</span>
-                <span id="valorTotalCarrinho" class="font-bold text-lg text-verde">R$ 0,00</span>
-            </div>
-            <button onclick="irPagamento()" class="w-full bg-principal hover:bg-principal/80 py-2 rounded-lg font-medium">Ir para Pagamento</button>
-        </div>
-    </div>
-</div>
-
-<!-- PAGAMENTO -->
-<div id="modalPagamento" class="fixed inset-0 z-[60] bg-black/80 hidden items-center justify-center p-4">
-    <div class="bg-white text-black rounded-xl w-full max-w-sm p-5 text-center">
-        <h3 class="text-blue-600 text-xl font-bold mb-4">💳 PAGAMENTO VIA PIX</h3>
-        <p id="valorPagamento">Valor: R$ 0,00</p>
-        <div class="w-48 h-48 mx-auto border border-gray-300 rounded my-3 flex items-center justify-center bg-gray-100">QR CODE AQUI</div>
-        <div class="bg-gray-100 p-3 rounded text-xs mb-3 break-all" id="chavePix">00020126580014br.gov.bcb.pix0136SUACHAVEPIX</div>
-        <button onclick="copiarPix()" class="bg-blue-600 text-white px-4 py-2 rounded text-sm">📋 Copiar Código</button>
-        <button onclick="fecharPagamento()" class="bg-red-600 text-white px-4 py-2 rounded text-sm ml-2">❌ Fechar</button>
-        <p class="text-xs text-gray-600 mt-4">Após pagar, envie o comprovante no WhatsApp para receber sua conta ✅</p>
-    </div>
-</div>
-
-<!-- MENSAGEM DE SUCESSO -->
-<div id="msgSucesso" class="fixed top-4 right-4 z-[70] bg-verde text-white px-4 py-2 rounded-lg shadow-lg transition-transform duration-300 -translate-y-20 opacity-0">
-    ✅ Adicionado ao carrinho!
-</div>
-
 <script>
-// Variáveis globais
-let carrinho = [];
-
-// Funções básicas
 function voltarInicio() {
     window.location.href = 'index.html';
 }
 
-function mostrarMensagem() {
-    const msg = document.getElementById('msgSucesso');
-    msg.classList.remove('-translate-y-20', 'opacity-0');
-    msg.classList.add('translate-y-0', 'opacity-100');
-
-    setTimeout(() => {
-        msg.classList.add('-translate-y-20', 'opacity-0');
-        msg.classList.remove('translate-y-0', 'opacity-100');
-    }, 2500);
+// Salva o produto e vai para página do carrinho
+function comprarProduto(nome, preco, estoque, imagem) {
+    const produto = { nome, preco, estoque, imagem };
+    localStorage.setItem('produtoCarrinho', JSON.stringify(produto));
+    atualizarContador();
+    window.location.href = 'carrinho.html';
 }
 
-// Carrinho
-function adicionarAoCarrinho(nome, preco, estoque, imagem) {
-    if (estoque <= 0) {
-        alert('❌ Produto esgotado!');
-        return;
-    }
-
-    carrinho.push({ nome, preco, imagem });
-    atualizarContador();
-    mostrarMensagem();
-    abrirCarrinho();
+function irParaCarrinho() {
+    window.location.href = 'carrinho.html';
 }
 
 function atualizarContador() {
-    const qtd = carrinho.length;
+    const produto = JSON.parse(localStorage.getItem('produtoCarrinho') || 'null');
+    const qtd = produto ? 1 : 0;
     document.getElementById('qtdCarrinho').textContent = qtd;
     document.getElementById('qtdCarrinhoMovel').textContent = qtd;
-}
-
-function abrirCarrinho() {
-    document.getElementById('modalCarrinho').classList.remove('hidden');
-    document.getElementById('modalCarrinho').classList.add('flex');
-    atualizarListaCarrinho();
-}
-
-function fecharCarrinho() {
-    document.getElementById('modalCarrinho').classList.add('hidden');
-    document.getElementById('modalCarrinho').classList.remove('flex');
-}
-
-function atualizarListaCarrinho() {
-    const lista = document.getElementById('listaItensCarrinho');
-    const rodape = document.getElementById('rodapeCarrinho');
-    const valorTotal = document.getElementById('valorTotalCarrinho');
-
-    if (carrinho.length === 0) {
-        lista.innerHTML = '<p class="text-gray-400 text-center py-6">Carrinho vazio</p>';
-        rodape.classList.add('hidden');
-        return;
-    }
-
-    rodape.classList.remove('hidden');
-    let html = '';
-    let total = 0;
-
-    carrinho.forEach((item, indice) => {
-        total += item.preco;
-        html += `
-        <div class="flex gap-3 border-b border-gray-700 py-3">
-            <img src="${item.imagem}" class="w-16 h-16 rounded object-cover">
-            <div class="flex-1 text-left">
-                <h4 class="text-xs font-medium">${item.nome}</h4>
-                <p class="text-verde text-sm font-bold mt-1">R$ ${item.preco.toFixed(2).replace('.', ',')}</p>
-            </div>
-            <button onclick="removerItem(${indice})" class="text-vermelho text-sm self-start"><i class="fa fa-trash"></i></button>
-        </div>
-        `;
-    });
-
-    lista.innerHTML = html;
-    valorTotal.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
-}
-
-function removerItem(indice) {
-    carrinho.splice(indice, 1);
-    atualizarContador();
-    atualizarListaCarrinho();
-}
-
-// Pagamento
-function irPagamento() {
-    fecharCarrinho();
-    const total = carrinho.reduce((soma, item) => soma + item.preco, 0);
-    document.getElementById('valorPagamento').textContent = `Valor: R$ ${total.toFixed(2).replace('.', ',')}`;
-    document.getElementById('modalPagamento').classList.remove('hidden');
-    document.getElementById('modalPagamento').classList.add('flex');
-}
-
-function fecharPagamento() {
-    document.getElementById('modalPagamento').classList.add('hidden');
-    document.getElementById('modalPagamento').classList.remove('flex');
-}
-
-function copiarPix() {
-    const codigo = document.getElementById('chavePix').textContent;
-    navigator.clipboard.writeText(codigo);
-    alert('✅ Código copiado!');
 }
 
 // Pesquisa
 document.getElementById('buscarProduto').addEventListener('input', function() {
     const termo = this.value.toLowerCase().trim();
     const produtos = document.querySelectorAll('.produto');
-
     produtos.forEach(prod => {
         const nome = prod.querySelector('h3').textContent.toLowerCase();
         prod.style.display = nome.includes(termo) ? 'block' : 'none';
     });
 });
+
+// Atualiza contador ao carregar
+window.addEventListener('DOMContentLoaded', atualizarContador);
 </script>
 
 </body>
-                            </html>
-                            
+    </html>
+                        
