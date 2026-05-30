@@ -280,7 +280,40 @@
                     </div>  
                     <div class="flex items-center gap-2">  
                         <button onclick="irParaCarrinho('⚡ Conta V4 DRACO', 45.00, 0, 'draco-contav4.png')" class="btn-comprar flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs cursor-pointer">  
-                            Comprar  
-                        </button>  
-                        <button onclick="irParaCarrinho('⚡ Conta V4 DRACO', 45.00, 0, 'draco-contav4.png')" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition cursor-pointer">  
-                      
+                        <!-- SCRIPT (SEU ORIGINAL) -->
+<script>
+let carrinho = [];
+
+function irParaCarrinho(nome, preco, estoque, imagem) {
+    carrinho.push({ nome, preco, estoque, imagem });
+    atualizarCarrinho();
+}
+
+function atualizarCarrinho() {
+    document.querySelectorAll("#contadorCarrinho, #contadorCarrinhoMovel")
+        .forEach(el => el.innerText = carrinho.length);
+}
+
+function abrirCarrinhoPagina() {
+    if (carrinho.length === 0) {
+        alert("Carrinho vazio!");
+        return;
+    }
+
+    let texto = "🛒 CARRINHO:\n\n";
+
+    carrinho.forEach(item => {
+        texto += `• ${item.nome} - R$ ${item.preco}\n`;
+    });
+
+    alert(texto);
+}
+
+function voltarParaCatalogo() {
+    location.reload();
+}
+</script>
+
+</body>  
+</html>
+                                            
