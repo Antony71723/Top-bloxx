@@ -57,11 +57,9 @@
     <header class="bg-card/80 backdrop-blur-sm sticky top-0 z-50 border-b border-principal/20">
         <div class="conteudo py-3 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <!-- BOTÃO VOLTAR CLICÁVEL -->
                 <button onclick="voltarCatalogo()" class="bg-principal/20 hover:bg-principal/40 transition px-3 py-1 rounded-lg text-sm flex items-center gap-1 pointer-events-auto cursor-pointer">
                     <i class="fa fa-arrow-left"></i> Voltar
                 </button>
-                <!-- IMAGEM TROCADA POR top-blox.png COMO VOCÊ PEDIU -->
                 <img src="top-blox.png" alt="Logo" class="w-12 h-12 rounded-lg">
                 <div>
                     <h1 class="font-bold text-lg">The Blox | Comprar</h1>
@@ -100,91 +98,20 @@
             <i class="fa fa-gem text-principal"></i> Contas CUSTO-BENEFÍCIO | CONTAS DE BLOX FRUITS
         </h2>
 
-        <!-- Grade de Produtos - 2 POR LINHA -->
         <div id="listaProdutos" class="grid grid-cols-2 gap-3 md:gap-4">
 
-            <!-- ========== PRODUTOS NOVOS ========== -->
             <!-- Produto 1 -->
             <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group cursor-pointer" 
                  data-id="1" 
-                 data-nome="[PROMOÇÃO] ✨🍓 FRUTA MÍTICA INVENTÁRIO + LEVEL MÁXIMO + GODHUMAN" 
-                 data-preco="8.79" 
-                 data-estoque="999">
-                <div class="relative overflow-hidden">
-                    <img src="https://i.imgur.com/9X9Z7Lb.jpeg" alt="Produto" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">
-                    <span class="absolute top-2 left-2 bg-verde text-white text-xs font-bold px-2 py-1 rounded">56% OFF</span>
-                    <span class="absolute top-2 right-2 bg-amarelo/90 text-white text-xs font-bold px-2 py-1 rounded">PROMOÇÃO</span>
-                </div>
-                <div class="p-3">
-                    <h3 class="font-medium text-xs mb-2 line-clamp-2 h-8">
-                        [PROMOÇÃO] ✨🍓 FRUTA MÍTICA INVENTÁRIO + LEVEL MÁXIMO + GODHUMAN
-                    </h3>
-                    <div class="mb-2">
-                        <span class="text-gray-400 line-through text-[10px]">R$ 19,99</span>
-                        <div class="flex items-center gap-1">
-                            <span class="font-bold text-sm">R$ 8,79</span>
-                            <span class="text-verde text-[10px] font-medium">À vista no PIX</span>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs comprarBtn pointer-events-auto cursor-pointer">
-                            Comprar
-                        </button>
-                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition adicionarCarrinho pointer-events-auto cursor-pointer">
-                            <i class="fa fa-shopping-bag text-sm"></i>
-                        </button>
-                    </div>
-                    <div class="estoque text-[10px] text-verde mt-1">Estoque: Disponível</div>
-                </div>
-            </div>
-
-            <!-- Produto 2 -->
-            <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group cursor-pointer" 
-                 data-id="2" 
-                 data-nome="🔥「👊」CONTAS DE BLOX FRUITS LEVEL MAX + GODHUMAN + FRUTAS" 
-                 data-preco="5.94" 
-                 data-estoque="999">
-                <div class="relative overflow-hidden">
-                    <img src="https://i.imgur.com/8Z7X7yY.jpeg" alt="Produto" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">
-                    <span class="absolute top-2 left-2 bg-verde text-white text-xs font-bold px-2 py-1 rounded">62% OFF</span>
-                </div>
-                <div class="p-3">
-                    <h3 class="font-medium text-xs mb-2 line-clamp-2 h-8">
-                        🔥「👊」CONTAS DE BLOX FRUITS LEVEL MAX + GODHUMAN + FRUTAS
-                    </h3>
-                    <div class="mb-2">
-                        <span class="text-gray-400 line-through text-[10px]">R$ 16,00</span>
-                        <div class="flex items-center gap-1">
-                            <span class="font-bold text-sm">R$ 5,94</span>
-                            <span class="text-verde text-[10px] font-medium">À vista no PIX</span>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs comprarBtn pointer-events-auto cursor-pointer">
-                            Comprar
-                        </button>
-                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition adicionarCarrinho pointer-events-auto cursor-pointer">
-                            <i class="fa fa-shopping-bag text-sm"></i>
-                        </button>
-                    </div>
-                    <div class="estoque text-[10px] text-verde mt-1">Estoque: Disponível</div>
-                </div>
-            </div>
-
-            <!-- Produto 3 -->
-            <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group cursor-pointer" 
-                 data-id="3" 
                  data-nome="✨🍎 2 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX" 
                  data-preco="11.99" 
-                 data-estoque="999">
+                 data-estoque="0">
                 <div class="relative overflow-hidden">
                     <img src="https://i.imgur.com/7X6W5vB.jpeg" alt="Produto" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">
                     <span class="absolute top-2 left-2 bg-verde text-white text-xs font-bold px-2 py-1 rounded">58% OFF</span>
                 </div>
                 <div class="p-3">
-                    <h3 class="font-medium text-xs mb-2 line-clamp-2 h-8">
-                        ✨🍎 2 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX
-                    </h3>
+                    <h3 class="font-medium text-xs mb-2 line-clamp-2 h-8">✨🍎 2 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX</h3>
                     <div class="mb-2">
                         <span class="text-gray-400 line-through text-[10px]">R$ 29,00</span>
                         <div class="flex items-center gap-1">
@@ -193,23 +120,23 @@
                         </div>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs comprarBtn pointer-events-auto cursor-pointer">
+                        <button onclick="irParaCarrinho(this)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs pointer-events-auto cursor-pointer">
                             Comprar
                         </button>
-                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition adicionarCarrinho pointer-events-auto cursor-pointer">
+                        <button onclick="irParaCarrinho(this)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition pointer-events-auto cursor-pointer">
                             <i class="fa fa-shopping-bag text-sm"></i>
                         </button>
                     </div>
-                    <div class="estoque text-[10px] text-verde mt-1">Estoque: Disponível</div>
+                    <div class="estoque text-[10px] text-vermelho mt-1 font-medium">Estoque: Vazio</div>
                 </div>
             </div>
 
-            <!-- Produto 4 -->
+            <!-- Produto 2 -->
             <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group cursor-pointer" 
-                 data-id="4" 
+                 data-id="2" 
                  data-nome="🔥🍓 3-7 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX" 
                  data-preco="16.63" 
-                 data-estoque="999">
+                 data-estoque="0">
                 <div class="relative overflow-hidden">
                     <img src="https://i.imgur.com/6V5U4aB.jpeg" alt="Produto" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">
                     <span class="absolute top-2 left-2 bg-verde text-white text-xs font-bold px-2 py-1 rounded">58% OFF</span>
@@ -218,43 +145,39 @@
                     </span>
                 </div>
                 <div class="p-3">
-                    <h3 class="font-medium text-xs mb-2 line-clamp-2 h-8">
-                        🔥🍓 3-7 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX
-                    </h3>
+                    <h3 class="font-medium text-xs mb-2 line-clamp-2 h-8">🔥🍓 3-7 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX</h3>
                     <div class="mb-2">
                         <span class="text-gray-400 line-through text-[10px]">R$ 40,00</span>
                         <div class="flex items-center gap-1">
-                            <span class="font-bold text-sm">R$ 16,63</span>
+                            <span class="font-bold text-sm">R$ 16.63</span>
                             <span class="text-verde text-[10px] font-medium">À vista no PIX</span>
                         </div>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs comprarBtn pointer-events-auto cursor-pointer">
+                        <button onclick="irParaCarrinho(this)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs pointer-events-auto cursor-pointer">
                             Comprar
                         </button>
-                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition adicionarCarrinho pointer-events-auto cursor-pointer">
+                        <button onclick="irParaCarrinho(this)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition pointer-events-auto cursor-pointer">
                             <i class="fa fa-shopping-bag text-sm"></i>
                         </button>
                     </div>
-                    <div class="estoque text-[10px] text-verde mt-1">Estoque: Disponível</div>
+                    <div class="estoque text-[10px] text-vermelho mt-1 font-medium">Estoque: Vazio</div>
                 </div>
             </div>
 
-            <!-- Produto 5 -->
+            <!-- Produto 3 (COM ESTOQUE PRA TESTAR) -->
             <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group cursor-pointer" 
-                 data-id="5" 
+                 data-id="3" 
                  data-nome="✨🍏🍎🔷 4-6 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX" 
                  data-preco="27.09" 
-                 data-estoque="999">
+                 data-estoque="1">
                 <div class="relative overflow-hidden">
                     <img src="https://i.imgur.com/5T4S3zB.jpeg" alt="Produto" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">
                     <span class="absolute top-2 left-2 bg-verde text-white text-xs font-bold px-2 py-1 rounded">58% OFF</span>
                     <span class="absolute bottom-2 left-2 text-lg">💰</span>
                 </div>
                 <div class="p-3">
-                    <h3 class="font-medium text-xs mb-2 line-clamp-2 h-8">
-                        ✨🍏🍎🔷 4-6 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX
-                    </h3>
+                    <h3 class="font-medium text-xs mb-2 line-clamp-2 h-8">✨🍏🍎🔷 4-6 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX</h3>
                     <div class="mb-2">
                         <span class="text-gray-400 line-through text-[10px]">R$ 65,00</span>
                         <div class="flex items-center gap-1">
@@ -263,31 +186,29 @@
                         </div>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs comprarBtn pointer-events-auto cursor-pointer">
+                        <button onclick="irParaCarrinho(this)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs pointer-events-auto cursor-pointer">
                             Comprar
                         </button>
-                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition adicionarCarrinho pointer-events-auto cursor-pointer">
+                        <button onclick="irParaCarrinho(this)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition pointer-events-auto cursor-pointer">
                             <i class="fa fa-shopping-bag text-sm"></i>
                         </button>
                     </div>
-                    <div class="estoque text-[10px] text-verde mt-1">Estoque: Disponível</div>
+                    <div class="estoque text-[10px] text-verde mt-1 font-medium">Estoque: Disponível</div>
                 </div>
             </div>
 
-            <!-- Produto 6 -->
+            <!-- Produto 4 -->
             <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group cursor-pointer" 
-                 data-id="6" 
+                 data-id="4" 
                  data-nome="🍇🚨 7+ FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX" 
                  data-preco="38.90" 
-                 data-estoque="999">
+                 data-estoque="0">
                 <div class="relative overflow-hidden">
                     <img src="https://i.imgur.com/3R2Q1xW.jpeg" alt="Produto" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">
                     <span class="absolute top-2 left-2 bg-verde text-white text-xs font-bold px-2 py-1 rounded">58% OFF</span>
                 </div>
                 <div class="p-3">
-                    <h3 class="font-medium text-xs mb-2 line-clamp-2 h-8">
-                        🍇🚨 7+ FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX
-                    </h3>
+                    <h3 class="font-medium text-xs mb-2 line-clamp-2 h-8">🍇🚨 7+ FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX</h3>
                     <div class="mb-2">
                         <span class="text-gray-400 line-through text-[10px]">R$ 129,90</span>
                         <div class="flex items-center gap-1">
@@ -296,22 +217,100 @@
                         </div>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs comprarBtn pointer-events-auto cursor-pointer">
+                        <button onclick="irParaCarrinho(this)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs pointer-events-auto cursor-pointer">
                             Comprar
                         </button>
-                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition adicionarCarrinho pointer-events-auto cursor-pointer">
+                        <button onclick="irParaCarrinho(this)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition pointer-events-auto cursor-pointer">
                             <i class="fa fa-shopping-bag text-sm"></i>
                         </button>
                     </div>
-                    <div class="estoque text-[10px] text-verde mt-1">Estoque: Disponível</div>
+                    <div class="estoque text-[10px] text-vermelho mt-1 font-medium">Estoque: Vazio</div>
                 </div>
             </div>
 
-            <!-- ========== PRODUTOS ANTIGOS QUE VOCÊ TINHA ========== -->
-            <!-- Conta V4 DRACO -->
+            <!-- Produto 5 -->
+            <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group cursor-pointer" 
+                 data-id="5" 
+                 data-nome="✨🍓 FRUTA MÍTICA INVENTÁRIO + LEVEL MÁXIMO + GODHUMAN" 
+                 data-preco="8.79" 
+                 data-estoque="0">
+                <div class="relative overflow-hidden">
+                    <img src="https://i.imgur.com/9X9Z7Lb.jpeg" alt="Produto" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">
+                    <span class="absolute top-2 left-2 bg-verde text-white text-xs font-bold px-2 py-1 rounded">56% OFF</span>
+                    <span class="absolute top-2 right-2 bg-amarelo/90 text-white text-xs font-bold px-2 py-1 rounded">PROMOÇÃO</span>
+                </div>
+                <div class="p-3">
+                    <h3 class="font-medium text-xs mb-2 line-clamp-2 h-8">✨🍓 FRUTA MÍTICA INVENTÁRIO + LEVEL MÁXIMO + GODHUMAN</h3>
+                    <div class="mb-2">
+                        <span class="text-gray-400 line-through text-[10px]">R$ 19,99</span>
+                        <div class="flex items-center gap-1">
+                            <span class="font-bold text-sm">R$ 8,79</span>
+                            <span class="text-verde text-[10px] font-medium">À vista no PIX</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="irParaCarrinho(this)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs pointer-events-auto cursor-pointer">
+                            Comprar
+                        </button>
+                        <button onclick="irParaCarrinho(this)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition pointer-events-auto cursor-pointer">
+                            <i class="fa fa-shopping-bag text-sm"></i>
+                        </button>
+                    </div>
+                    <div class="estoque text-[10px] text-vermelho mt-1 font-medium">Estoque: Vazio</div>
+                </div>
+            </div>
+
+            <!-- Produto 6 -->
+            <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group cursor-pointer" 
+                 data-id="6" 
+                 data-nome="🔥「👊」CONTAS DE BLOX FRUITS LEVEL MAX + GODHUMAN + FRUTAS" 
+                 data-preco="5.94" 
+                 data-estoque="0">
+                <div class="relative overflow-hidden">
+                    <img src="https://i.imgur.com/8Z7X7yY.jpeg" alt="Produto" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">
+                    <span class="absolute top-2 left-2 bg-verde text-white text-xs font-bold px-2 py-1 rounded">62% OFF</span>
+                </div>
+                <div class="p-3">
+                    <h3 class="font-medium text-xs mb-2 line-clamp-2 h-8">🔥「👊」CONTAS DE BLOX FRUITS LEVEL MAX + GODHUMAN + FRUTAS</h3>
+                    <div class="mb-2">
+                        <span class="text-gray-400 line-through text-[10px]">R$ 16,00</span>
+                        <div class="flex items-center gap-1">
+                            <span class="font-bold text-sm">R$ 5,94</span>
+                            <span class="text-verde text-[10px] font-medium">À vista no PIX</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="irParaCarrinho(this)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs pointer-events-auto cursor-pointer">
+                            Comprar
+                        </button>
+                        <button onclick="irParaCarrinho(this)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition pointer-events-auto cursor-pointer">
+                            <i class="fa fa-shopping-bag text-sm"></i>
+                        </button>
+                    </div>
+                    <div class="estoque text-[10px] text-vermelho mt-1 font-medium">Estoque: Vazio</div>
+                </div>
+            </div>
+
+            <!-- Produto 7 -->
             <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group cursor-pointer" 
                  data-id="7" 
-                 data-nome="Conta V4 DRACO - Level máximo • Draco V4 • Todas engrenagens • Itens raros" 
+                 data-nome="⚡ Conta V4 DRACO" 
                  data-preco="45.00" 
                  data-estoque="0">
-                <div class="
+                <div class="relative overflow-hidden">
+                    <img src="https://i.imgur.com/3R2Q1xW.jpeg" alt="Conta V4 DRACO" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">
+                    <span class="absolute top-2 left-2 bg-vermelho text-white text-xs font-bold px-2 py-1 rounded">ESGOTADO</span>
+                </div>
+                <div class="p-3">
+                    <h3 class="font-medium text-xs mb-2 line-clamp-2 h-8">⚡ Conta V4 DRACO</h3>
+                    <div class="mb-2">
+                        <div class="flex items-center gap-1">
+                            <span class="font-bold text-sm">R$ 45,00</span>
+                            <span class="text-verde text-[10px] font-medium">À vista no PIX</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="irParaCarrinho(this)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs pointer-events-auto cursor-pointer">
+                            Comprar
+                        </button>
+                        <button onclick="irParaCarrinho(this)" class="w-9 h-9 flex items-center justify-center bo
