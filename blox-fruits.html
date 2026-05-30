@@ -288,4 +288,37 @@
                             <i class="fa fa-shopping-bag text-sm"></i>  
                         </button>  
                     </div>  
-      
+      <script>
+let carrinho = [];
+
+function irParaCarrinho(nome, preco, estoque, imagem) {
+    carrinho.push({ nome, preco, estoque, imagem });
+    atualizarCarrinho();
+}
+
+function atualizarCarrinho() {
+    document.querySelectorAll("#contadorCarrinho, #contadorCarrinhoMovel")
+        .forEach(el => el.innerText = carrinho.length);
+}
+
+function abrirCarrinhoPagina() {
+    if (carrinho.length === 0) {
+        alert("Carrinho vazio!");
+        return;
+    }
+
+    let texto = "🛒 CARRINHO:\n\n";
+
+    carrinho.forEach(item => {
+        texto += `• ${item.nome} - R$ ${item.preco}\n`;
+    });
+
+    alert(texto);
+}
+
+function voltarParaCatalogo() {
+    location.reload();
+}
+</script>
+</body>
+                </html>
