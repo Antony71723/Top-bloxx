@@ -27,7 +27,7 @@
     <style type="text/tailwindcss">
         @layer utilities {
             .conteudo {
-                max-width: 500px;
+                max-width: 600px;
                 margin: 0 auto;
                 padding: 0 1rem;
             }
@@ -42,43 +42,38 @@
 </head>
 <body class="bg-preto text-white font-sans min-h-screen">
 
-<!-- Cabeçalho -->
-<header class="py-5 border-b border-roxo/30">
+<header class="py-6 border-b border-roxo/30">
     <div class="conteudo flex items-center gap-3">
         <i class="fa fa-shopping-cart text-roxo text-3xl"></i>
-        <h1 class="text-roxo text-2xl font-bold">CARRINHO</h1>
+        <h1 class="text-roxo text-3xl font-bold">CARRINHO</h1>
     </div>
 </header>
 
-<main class="conteudo py-6">
-    <!-- Produto no Carrinho -->
-    <div id="produtoCarrinho" class="borda-roxa rounded-xl p-3 mb-5 flex gap-3 bg-card_bg">
-        <img id="imagemProduto" src="" alt="Produto" class="w-[48%] rounded-lg object-cover">
+<main class="conteudo py-8">
+    <div id="produtoCarrinho" class="borda-roxa rounded-xl p-4 mb-6 flex gap-4 bg-card_bg">
+        <img id="imagemProduto" src="" alt="Produto" class="w-[45%] rounded-lg object-cover">
         <div class="flex-1 flex flex-col justify-center">
-            <h2 id="nomeProduto" class="text-roxo text-xl font-bold mb-2"></h2>
-            <p id="precoUnitario" class="text-verde text-xl font-bold mb-4"></p>
-            <div class="flex items-center gap-3">
-                <button onclick="diminuirQtd()" class="w-11 h-11 bg-gray-800 rounded-lg flex items-center justify-center text-xl font-bold">-</button>
-                <span id="quantidade" class="text-lg font-bold">1</span>
-                <button onclick="aumentarQtd()" class="w-11 h-11 bg-gray-800 rounded-lg flex items-center justify-center text-xl font-bold">+</button>
+            <h2 id="nomeProduto" class="text-roxo text-2xl font-bold mb-3"></h2>
+            <p id="precoUnitario" class="text-verde text-2xl font-bold mb-5"></p>
+            <div class="flex items-center gap-4">
+                <button onclick="diminuirQtd()" class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-2xl font-bold">-</button>
+                <span id="quantidade" class="text-xl font-bold">1</span>
+                <button onclick="aumentarQtd()" class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-2xl font-bold">+</button>
             </div>
         </div>
     </div>
 
-    <!-- Total e Avisos -->
-    <div class="borda-roxa rounded-xl p-5 bg-card_bg">
-        <div class="mb-5">
-            <h3 class="text-roxo text-xl font-bold mb-2">Valor Total</h3>
-            <p id="valorTotal" class="text-verde text-3xl font-bold">R$ 0,00</p>
+    <div class="borda-roxa rounded-xl p-6 bg-card_bg">
+        <div class="mb-6">
+            <h3 class="text-roxo text-2xl font-bold mb-3">Valor Total</h3>
+            <p id="valorTotal" class="text-verde text-4xl font-bold">R$ 0,00</p>
         </div>
 
-        <!-- Aviso SÓ APARECE QUANDO CLICAR EM FINALIZAR E NÃO TIVER ESTOQUE -->
-        <div id="avisoEstoque" class="bg-vermelho/10 text-vermelho font-bold text-center py-3 rounded-lg mb-5 text-lg hidden">
+        <div id="avisoEstoque" class="bg-vermelho/10 text-vermelho font-bold text-center py-4 rounded-lg mb-6 text-xl hidden">
             ❌ ESTE PRODUTO ESTÁ SEM ESTOQUE NO MOMENTO!
         </div>
 
-        <!-- Botão Finalizar -->
-        <button onclick="verificarEstoque()" class="botao-roxo w-full text-white text-xl font-bold py-4 rounded-lg transition hover:opacity-90">
+        <button onclick="verificarEstoque()" class="botao-roxo w-full text-white text-2xl font-bold py-4 rounded-lg transition hover:opacity-90">
             FINALIZAR COMPRA
         </button>
     </div>
@@ -90,7 +85,7 @@ let quantidade = 1;
 
 window.addEventListener('DOMContentLoaded', () => {
     if (!produto) {
-        document.querySelector('main').innerHTML = '<p class="text-center text-gray-400 mt-10">Seu carrinho está vazio</p>';
+        document.querySelector('main').innerHTML = '<p class="text-center text-gray-400 mt-20 text-xl">Seu carrinho está vazio</p>';
         return;
     }
 
@@ -119,14 +114,12 @@ function atualizarTotal() {
     document.getElementById('valorTotal').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
 }
 
-// FUNÇÃO AJUSTADA EXATAMENTE COMO VOCÊ QUER
 function verificarEstoque() {
     if (produto.estoque <= 0) {
-        // Se NÃO tiver estoque → mostra aviso
         document.getElementById('avisoEstoque').classList.remove('hidden');
     } else {
-        // Se TIVER estoque → guarda a quantidade e abre página de pagamento
         localStorage.setItem('quantidadeComprada', quantidade);
+        // ABRE A PÁGINA DE PAGAMENTO NOVA
         window.location.href = 'pagamento.html';
     }
 }
