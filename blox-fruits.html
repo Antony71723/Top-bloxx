@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Top Bloxx | Comprar Contas De Blox Fruits</title>
+    <title>Top Bloxx | Comprar Contas De Blox Fruits</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script>
@@ -57,11 +57,12 @@
     <header class="bg-card/80 backdrop-blur-sm sticky top-0 z-50 border-b border-principal/20">
         <div class="conteudo py-3 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <!-- BOTÃO VOLTAR QUE VOCÊ PEDIU -->
-                <button onclick="voltarCatalogo()" class="bg-principal/20 hover:bg-principal/40 transition px-3 py-1 rounded-lg text-sm flex items-center gap-1">
+                <!-- BOTÃO VOLTAR CLICÁVEL -->
+                <button onclick="voltarCatalogo()" class="bg-principal/20 hover:bg-principal/40 transition px-3 py-1 rounded-lg text-sm flex items-center gap-1 pointer-events-auto cursor-pointer">
                     <i class="fa fa-arrow-left"></i> Voltar
                 </button>
-                <img src="https://i.imgur.com/8Z7X7yY.png" alt="Logo" class="w-12 h-12 rounded-lg">
+                <!-- IMAGEM TROCADA POR top-blox.png COMO VOCÊ PEDIU -->
+                <img src="top-blox.png" alt="Logo" class="w-12 h-12 rounded-lg">
                 <div>
                     <h1 class="font-bold text-lg">The Blox | Comprar</h1>
                     <p class="text-sm text-gray-400">Contas De Blox Fruits</p>
@@ -73,22 +74,22 @@
                     <input type="text" id="pesquisar" placeholder="Pesquisar contas..." class="bg-escuro border border-gray-700 rounded-full py-2 px-4 pl-10 w-64 focus:outline-none focus:border-principal transition">
                     <i class="fa fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
                 </div>
-                <button class="text-white hover:text-principal transition"><i class="fa fa-headphones text-xl"></i></button>
-                <button id="abrirCarrinho" class="text-white hover:text-principal transition relative">
+                <button class="text-white hover:text-principal transition pointer-events-auto cursor-pointer"><i class="fa fa-headphones text-xl"></i></button>
+                <button id="abrirCarrinho" class="text-white hover:text-principal transition relative pointer-events-auto cursor-pointer">
                     <i class="fa fa-shopping-bag text-xl"></i>
                     <span id="contagemCarrinho" class="absolute -top-2 -right-2 bg-vermelho text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
                 </button>
-                <button class="bg-principal hover:bg-principal/80 transition px-4 py-2 rounded-lg font-medium">Entrar</button>
+                <button class="bg-principal hover:bg-principal/80 transition px-4 py-2 rounded-lg font-medium pointer-events-auto cursor-pointer">Entrar</button>
             </div>
 
             <div class="flex md:hidden items-center gap-3">
-                <button class="text-white hover:text-principal transition"><i class="fa fa-search text-lg"></i></button>
-                <button class="text-white hover:text-principal transition"><i class="fa fa-headphones text-lg"></i></button>
-                <button id="abrirCarrinhoMobile" class="text-white hover:text-principal transition relative">
+                <button class="text-white hover:text-principal transition pointer-events-auto cursor-pointer"><i class="fa fa-search text-lg"></i></button>
+                <button class="text-white hover:text-principal transition pointer-events-auto cursor-pointer"><i class="fa fa-headphones text-lg"></i></button>
+                <button id="abrirCarrinhoMobile" class="text-white hover:text-principal transition relative pointer-events-auto cursor-pointer">
                     <i class="fa fa-shopping-bag text-lg"></i>
                     <span id="contagemCarrinhoMobile" class="absolute -top-2 -right-2 bg-vermelho text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
                 </button>
-                <button class="bg-principal hover:bg-principal/80 transition px-3 py-1 rounded-lg font-medium text-sm">Entrar</button>
+                <button class="bg-principal hover:bg-principal/80 transition px-3 py-1 rounded-lg font-medium text-sm pointer-events-auto cursor-pointer">Entrar</button>
             </div>
         </div>
     </header>
@@ -126,10 +127,10 @@
                         </div>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs comprarBtn">
+                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs comprarBtn pointer-events-auto cursor-pointer">
                             Comprar
                         </button>
-                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition adicionarCarrinho">
+                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition adicionarCarrinho pointer-events-auto cursor-pointer">
                             <i class="fa fa-shopping-bag text-sm"></i>
                         </button>
                     </div>
@@ -159,10 +160,10 @@
                         </div>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs comprarBtn">
+                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs comprarBtn pointer-events-auto cursor-pointer">
                             Comprar
                         </button>
-                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition adicionarCarrinho">
+                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition adicionarCarrinho pointer-events-auto cursor-pointer">
                             <i class="fa fa-shopping-bag text-sm"></i>
                         </button>
                     </div>
@@ -174,7 +175,7 @@
             <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group cursor-pointer" 
                  data-id="3" 
                  data-nome="✨🍎 2 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX" 
-                 data-preco="3,00" 
+                 data-preco="11.99" 
                  data-estoque="999">
                 <div class="relative overflow-hidden">
                     <img src="https://i.imgur.com/7X6W5vB.jpeg" alt="Produto" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">
@@ -192,10 +193,10 @@
                         </div>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs comprarBtn">
+                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs comprarBtn pointer-events-auto cursor-pointer">
                             Comprar
                         </button>
-                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition adicionarCarrinho">
+                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition adicionarCarrinho pointer-events-auto cursor-pointer">
                             <i class="fa fa-shopping-bag text-sm"></i>
                         </button>
                     </div>
@@ -206,8 +207,8 @@
             <!-- Produto 4 -->
             <div class="card bg-card rounded-xl overflow-hidden border border-gray-700 hover:border-principal/50 transition group cursor-pointer" 
                  data-id="4" 
-                 data-nome="🔥🎸🍓 3-5 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX" 
-                 data-preco="6.63" 
+                 data-nome="🔥🍓 3-7 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX" 
+                 data-preco="16.63" 
                  data-estoque="999">
                 <div class="relative overflow-hidden">
                     <img src="https://i.imgur.com/6V5U4aB.jpeg" alt="Produto" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">
@@ -218,7 +219,7 @@
                 </div>
                 <div class="p-3">
                     <h3 class="font-medium text-xs mb-2 line-clamp-2 h-8">
-                        🔥🍓 3-7FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX
+                        🔥🍓 3-7 FRUTAS MÍTICAS + GODHUMAN + LEVEL MAX
                     </h3>
                     <div class="mb-2">
                         <span class="text-gray-400 line-through text-[10px]">R$ 40,00</span>
@@ -228,10 +229,10 @@
                         </div>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs comprarBtn">
+                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs comprarBtn pointer-events-auto cursor-pointer">
                             Comprar
                         </button>
-                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition adicionarCarrinho">
+                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition adicionarCarrinho pointer-events-auto cursor-pointer">
                             <i class="fa fa-shopping-bag text-sm"></i>
                         </button>
                     </div>
@@ -262,10 +263,10 @@
                         </div>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs comprarBtn">
+                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs comprarBtn pointer-events-auto cursor-pointer">
                             Comprar
                         </button>
-                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition adicionarCarrinho">
+                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition adicionarCarrinho pointer-events-auto cursor-pointer">
                             <i class="fa fa-shopping-bag text-sm"></i>
                         </button>
                     </div>
@@ -295,10 +296,10 @@
                         </div>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs comprarBtn">
+                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="flex-1 bg-principal hover:bg-principal/80 transition py-1.5 rounded font-medium text-xs comprarBtn pointer-events-auto cursor-pointer">
                             Comprar
                         </button>
-                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition adicionarCarrinho">
+                        <button onclick="abrirCarrinho(this.parentElement.parentElement.parentElement)" class="w-9 h-9 flex items-center justify-center border border-gray-600 rounded hover:border-principal transition adicionarCarrinho pointer-events-auto cursor-pointer">
                             <i class="fa fa-shopping-bag text-sm"></i>
                         </button>
                     </div>
@@ -313,15 +314,4 @@
                  data-nome="Conta V4 DRACO - Level máximo • Draco V4 • Todas engrenagens • Itens raros" 
                  data-preco="45.00" 
                  data-estoque="0">
-                <div class="relative overflow-hidden">
-                    <img src="draco-contav4.png" alt="Conta V4 DRACO" class="w-full aspect-video object-cover group-hover:scale-105 transition duration-500">
-                    <span class="absolute top-2 left-2 bg-vermelho text-white text-xs font-bold px-2 py-1 rounded">ESGOTADO</span>
-                </div>
-                <div class="p-3">
-                    <h3 class="font-medium text-xs mb-2 line-clamp-2 h-8">
-                        ⚡ Conta V4 DRACO
-                    </h3>
-                    <div class="mb-2">
-                        <div class="flex items-center gap-1">
-                            <span class="font-bold text-sm">R$ 45,00</span>
-                            <span class="text-ver
+                <div class="
