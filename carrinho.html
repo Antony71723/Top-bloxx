@@ -2,73 +2,137 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Carrinho de Compras</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Bloxx | Carrinho</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script>  
-        tailwind.config = {  
-            theme: {  
-                extend: {  
-                    colors: {  
-                        principal: '#6D28D9',  
-                        escuro: '#121214',  
-                        card: '#1E1E20',  
-                        verde: '#10B981',  
-                        vermelho: '#EF4444'
-                    }
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        roxo: '#9D4EDD',
+                        verde: '#28C76F',
+                        vermelho: '#EA5455',
+                    },
+                    fontFamily: {
+                        sans: ['Arial', 'sans-serif'],
+                    },
                 }
             }
-        }  
-    </script>
-</head>
-<body class="bg-escuro text-white min-h-screen p-4">
-    <div class="max-w-md mx-auto bg-card rounded-xl p-5 mt-10">
-        <button onclick="voltar()" class="bg-principal/20 hover:bg-principal/40 px-3 py-1 rounded-lg mb-4 flex items-center gap-1">
-            <i class="fa fa-arrow-left"></i> Voltar
-        </button>
-
-        <h2 id="nomeProdutoCarrinho" class="font-bold text-lg mb-3"></h2>
-        <p class="mb-2">Valor: <span id="precoProdutoCarrinho" class="text-verde font-bold"></span></p>
-        <p class="mb-4">Status: <span id="statusEstoqueCarrinho" class="font-medium"></span></p>
-
-        <div id="avisoEsgotado" class="escondido bg-vermelho/20 border border-vermelho p-3 rounded-lg mb-4 text-sm">
-            ⚠️ Infelizmente esse produto está sem estoque no momento! Aguarde novas reposições.
-        </div>
-
-        <button onclick="finalizar()" class="w-full bg-principal hover:bg-principal/80 py-3 rounded-lg font-bold">
-            Finalizar Compra
-        </button>
-    </div>
-
-    <script>
-        // Pega os dados salvos da página anterior
-        let nome = localStorage.getItem("nomeProduto");
-        let preco = localStorage.getItem("precoProduto");
-        let estoque = localStorage.getItem("temEstoque");
-
-        // Mostra os dados na tela
-        document.getElementById("nomeProdutoCarrinho").textContent = nome;
-        document.getElementById("precoProdutoCarrinho").textContent = "R$ " + preco;
-
-        if(estoque == 0) {
-            document.getElementById("statusEstoqueCarrinho").textContent = "Estoque: Vazio";
-            document.getElementById("statusEstoqueCarrinho").className = "text-vermelho";
-        } else {
-            document.getElementById("statusEstoqueCarrinho").textContent = "Estoque: Disponível";
-            document.getElementById("statusEstoqueCarrinho").className = "text-verde";
         }
-
-        function finalizar() {
-            if(estoque == 0) {
-                document.getElementById("avisoEsgotado").classList.remove("escondido");
-            } else {
-                window.location.href = "pagamento.html";
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .conteudo {
+                max-width: 500px;
+                margin: 0 auto;
+                padding: 0 1rem;
+            }
+            .botao-roxo {
+                background: linear-gradient(90deg, #9D4EDD 0%, #5A32C7 100%);
             }
         }
+    </style>
+</head>
+<body class="bg-white font-sans min-h-screen">
 
-        function voltar() {
-            window.history.back();
-        }
-    </script>
+<!-- Cabeçalho -->
+<header class="py-5 border-b border-gray-200">
+    <div class="conteudo flex items-center gap-2">
+        <i class="fa fa-shopping-cart text-roxo text-3xl"></i>
+        <h1 class="text-roxo text-2xl font-bold">CARRINHO</h1>
+    </div>
+</header>
+
+<main class="conteudo py-6">
+    <!-- Produto no Carrinho -->
+    <div id="produtoCarrinho" class="border-2 border-roxo/50 rounded-xl p-3 mb-5 flex gap-3">
+        <img id="imagemProduto" src="" alt="Produto" class="w-[45%] rounded-lg object-cover">
+        <div class="flex-1 flex flex-col justify-center">
+            <h2 id="nomeProduto" class="text-roxo text-xl font-bold mb-2"></h2>
+            <p id="precoProduto" class="text-verde text-xl font-bold mb-3"></p>
+            <div class="flex items-center gap-2">
+                <button onclick="diminuirQtd()" class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center text-xl font-bold">-</button>
+                <span id="quantidade" class="text-lg font-bold">1</span>
+                <button onclick="aumentarQtd()" class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center text-xl font-bold">+</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Total e Avisos -->
+    <div class="border-2 border-roxo/50 rounded-xl p-4">
+        <div class="mb-4">
+            <h3 class="text-roxo text-xl font-bold mb-1">Valor Total</h3>
+            <p id="valorTotal" class="text-verde text-3xl font-bold">R$ 0,00</p>
+        </div>
+
+        <!-- Aviso de Estoque -->
+        <div id="avisoEstoque" class="bg-vermelho/10 text-vermelho font-bold text-center py-3 rounded-lg mb-4 hidden">
+            ❌ ESTE PRODUTO ESTÁ SEM ESTOQUE NO MOMENTO!
+        </div>
+
+        <!-- Botão Finalizar -->
+        <button onclick="verificarEstoque()" class="botao-roxo w-full text-white text-xl font-bold py-3 rounded-lg transition hover:opacity-90">
+            FINALIZAR COMPRA
+        </button>
+    </div>
+</main>
+
+<script>
+// Pegar dados do produto salvo
+const produto = JSON.parse(localStorage.getItem('produtoCarrinho') || 'null');
+let quantidade = 1;
+
+// Carregar informações na página
+window.addEventListener('DOMContentLoaded', () => {
+    if (!produto) {
+        document.querySelector('main').innerHTML = '<p class="text-center text-gray-500 mt-10">Seu carrinho está vazio</p>';
+        return;
+    }
+
+    document.getElementById('imagemProduto').src = produto.imagem;
+    document.getElementById('nomeProduto').textContent = produto.nome;
+    document.getElementById('precoProduto').textContent = `R$ ${produto.preco.toFixed(2).replace('.', ',')}`;
+    atualizarTotal();
+
+    // Se estiver sem estoque, já mostra o aviso
+    if (produto.estoque <= 0) {
+        document.getElementById('avisoEstoque').classList.remove('hidden');
+    }
+});
+
+// Funções de quantidade
+function aumentarQtd() {
+    quantidade++;
+    document.getElementById('quantidade').textContent = quantidade;
+    atualizarTotal();
+}
+
+function diminuirQtd() {
+    if (quantidade > 1) {
+        quantidade--;
+        document.getElementById('quantidade').textContent = quantidade;
+        atualizarTotal();
+    }
+}
+
+// Atualizar valor total
+function atualizarTotal() {
+    const total = produto.preco * quantidade;
+    document.getElementById('valorTotal').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+}
+
+// Verificar estoque ao clicar em finalizar
+function verificarEstoque() {
+    if (produto.estoque <= 0) {
+        document.getElementById('avisoEstoque').classList.remove('hidden');
+    } else {
+        alert('✅ Compra realizada com sucesso! Redirecionando para pagamento...');
+        // Aqui você pode colocar o link da página de pagamento depois
+    }
+}
+</script>
+
 </body>
 </html>
