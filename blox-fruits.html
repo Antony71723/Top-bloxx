@@ -76,7 +76,7 @@
                 <i class="fa fa-shopping-bag"></i>
                 <span id="qtdCarrinho" class="absolute -top-2 -right-2 bg-vermelho text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
             </button>
-            <button class="bg-principal hover:bg-principal/80 transition px-4 py-2 rounded-lg font-medium cursor-pointer">Entrar</button>
+            <!-- BOTÃO ENTRAR REMOVIDO AQUI -->
         </div>
 
         <div class="flex md:hidden items-center gap-3">
@@ -86,7 +86,7 @@
                 <i class="fa fa-shopping-bag"></i>
                 <span id="qtdCarrinhoMovel" class="absolute -top-2 -right-2 bg-vermelho text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
             </button>
-            <button class="bg-principal hover:bg-principal/80 transition px-3 py-1 rounded-lg font-medium text-sm cursor-pointer">Entrar</button>
+            <!-- BOTÃO ENTRAR REMOVIDO AQUI -->
         </div>
     </div>
 </header>
@@ -229,7 +229,6 @@ function voltarInicio() {
     window.location.href = 'index.html';
 }
 
-// Salva o produto e vai para página do carrinho
 function comprarProduto(nome, preco, estoque, imagem) {
     const produto = { nome, preco, estoque, imagem };
     localStorage.setItem('produtoCarrinho', JSON.stringify(produto));
@@ -248,7 +247,6 @@ function atualizarContador() {
     document.getElementById('qtdCarrinhoMovel').textContent = qtd;
 }
 
-// Pesquisa
 document.getElementById('buscarProduto').addEventListener('input', function() {
     const termo = this.value.toLowerCase().trim();
     const produtos = document.querySelectorAll('.produto');
@@ -258,10 +256,9 @@ document.getElementById('buscarProduto').addEventListener('input', function() {
     });
 });
 
-// Atualiza contador ao carregar
 window.addEventListener('DOMContentLoaded', atualizarContador);
 </script>
 
 </body>
-    </html>
-                        
+                </html>
+                
