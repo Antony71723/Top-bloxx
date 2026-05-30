@@ -2,45 +2,107 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Pagamento PIX</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Bloxx | Pagamento</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-</head>
-<body class="bg-black/95 min-h-screen flex items-center justify-center p-4">
-    <div class="bg-white rounded-xl p-6 max-w-sm w-full text-center">
-        <h3 class="text-[#6D28D9] font-bold text-xl mb-4">PAGAMENTO VIA PIX</h3>
-
-        <div class="mb-4">
-            <img src="https://i.imgur.com/3kLpQ8b.png" alt="QR Code Pix" class="w-52 h-52 mx-auto rounded border border-gray-300">
-        </div>
-
-        <div class="bg-gray-100 p-3 rounded-lg mb-4">
-            <p class="text-sm text-gray-600 mb-2">Código Pix Copia e Cola:</p>
-            <p id="codigoPix" class="text-xs font-mono break-all bg-white p-2 rounded border border-gray-300">00020126580014br.gov.bcb.pix0136SUACHAVEPIX</p>
-        </div>
-
-        <div class="flex gap-3">
-            <button onclick="copiar()" class="flex-1 bg-[#6D28D9] hover:bg-[#6D28D9]/80 text-white py-2 rounded-lg font-medium">
-                📋 Copiar Código
-            </button>
-            <button onclick="fechar()" class="flex-1 bg-[#EF4444] hover:bg-[#EF4444]/80 text-white py-2 rounded-lg font-medium">
-                ❌ Fechar
-            </button>
-        </div>
-
-        <p class="text-xs text-gray-500 mt-4">Após pagar, envie o comprovante para receber sua conta!</p>
-    </div>
-
     <script>
-        function copiar() {
-            let codigo = document.getElementById("codigoPix").textContent;
-            navigator.clipboard.writeText(codigo);
-            alert("✅ Código PIX copiado com sucesso!");
-        }
-
-        function fechar() {
-            window.location.href = "index.html";
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        roxo: '#9D4EDD',
+                        verde: '#28C76F',
+                        vermelho: '#EA5455',
+                        preto: '#000000',
+                    },
+                    fontFamily: {
+                        sans: ['Arial', 'sans-serif'],
+                    },
+                }
+            }
         }
     </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .conteudo {
+                max-width: 400px;
+                margin: 3rem auto;
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-preto text-white font-sans min-h-screen flex items-center">
+
+<main class="conteudo w-full">
+    <div class="bg-white text-black rounded-xl p-5 text-center shadow-2xl">
+        <h2 class="text-roxo text-2xl font-bold mb-4">💳 PAGAMENTO VIA PIX</h2>
+        
+        <p class="text-lg font-medium mb-2">Valor a pagar:</p>
+        <p id="valorPagamento" class="text-verde text-2xl font-bold mb-6">R$ 0,00</p>
+
+        <!-- ESPAÇO PARA O QR CODE -->
+        <div class="w-48 h-48 mx-auto border-2 border-roxo rounded-lg mb-4 flex items-center justify-center bg-gray-100">
+            <span class="text-gray-500 text-sm">QR CODE AQUI</span>
+        </div>
+
+        <!-- CÓDIGO PIX CÓPIA E COLA -->
+        <div class="bg-gray-100 p-3 rounded text-sm mb-4 break-all font-mono" id="codigoPix">
+            00020126580014br.gov.bcb.pix0136chavepixexemplo12345678901234567890
+        </div>
+
+        <!-- BOTÕES -->
+        <div class="flex gap-3 justify-center">
+            <button onclick="copiarCodigo()" class="bg-roxo text-white px-5 py-2 rounded-lg font-medium hover:opacity-90 transition">
+                📋 Copiar Código
+            </button>
+            <button onclick="cancelarCompra()" class="bg-vermelho text-white px-5 py-2 rounded-lg font-medium hover:opacity-90 transition">
+                ❌ Fechar / Cancelar
+            </button>
+        </div>
+
+        <p class="text-xs text-gray-600 mt-5">
+            Após pagar, envie o comprovante para receber sua conta ✅
+        </p>
+    </div>
+</main>
+
+<script>
+// PEGA OS DADOS CORRETOS DO CARRINHO
+const produto = JSON.parse(localStorage.getItem('produtoCarrinho') || 'null');
+const quantidade = localStorage.getItem('quantidadeComprada') || 1;
+
+window.addEventListener('DOMContentLoaded', () => {
+    if (!produto) {
+        document.querySelector('main').innerHTML = '<p class="text-center text-red-500">Erro ao carregar dados do pagamento</p>';
+        return;
+    }
+
+    // MOSTRA O VALOR TOTAL CERTO (PREÇO X QUANTIDADE)
+    const total = produto.preco * quantidade;
+    document.getElementById('valorPagamento').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+});
+
+// FUNÇÃO PARA COPIAR O CÓDIGO PIX
+function copiarCodigo() {
+    const codigo = document.getElementById('codigoPix').textContent;
+    navigator.clipboard.writeText(codigo)
+        .then(() => {
+            alert('✅ Código PIX copiado com sucesso! Agora é só colar no seu banco.');
+        })
+        .catch(() => {
+            alert('❌ Erro ao copiar. Selecione o texto e copie manualmente.');
+        });
+}
+
+// FUNÇÃO PARA FECHAR E VOLTAR PRO CARRINHO
+function cancelarCompra() {
+    if (confirm('Tem certeza que deseja cancelar a compra?')) {
+        window.location.href = 'carrinho.html';
+    }
+}
+</script>
+
 </body>
 </html>
